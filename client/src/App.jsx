@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 // Layouts
-import Main from "./layouts/Main";
+import Main from '../layouts/main';
 
 function mainLoader() {
   return { }
@@ -18,53 +18,53 @@ const router = createBrowserRouter([
     element: <Main/ >,
     loader: mainLoader,
     errorElement: <Error />,
-    children: [
-      {
-        index: true,
-        element: <Dashboard />,
-        loader: dashboardLoader,
-        action: dashboardAction
-      },
-      {
-        path: "/login",
-        element: <LoginPage />,
-        loader: loginLoader
-      },
-      {
-        path: "/registration",
-        element: <RegistrationPage />,
-        loader: registrationLoader
-      },
-      {
-        path: "/profile/:userID",
-        element: <ProfilePage />,
-        loader: profileLoader
-      },
-      {
-        path: "/generate",
-        element: <GeneratePage />,
-        loader: generateLoader
-      },
-      {
-        path: "/sucess",
-        element: <Success />,
-        loader: successLoader
-      },
-      {
-        path: "/recipes/:recipeID",
-        element: <RecipePage />,
-        loader: receipeLoader
-      },
-      {
-        path: "/default",
-        element: <DefaultPage />
-      }
-    ]
+    // children: [
+    //   {
+    //     index: true,
+    //     element: <Dashboard />,
+    //     loader: dashboardLoader,
+    //     action: dashboardAction
+    //   },
+    //   {
+    //     path: "/login",
+    //     element: <LoginPage />,
+    //     loader: loginLoader
+    //   },
+    //   {
+    //     path: "/registration",
+    //     element: <RegistrationPage />,
+    //     loader: registrationLoader
+    //   },
+    //   {
+    //     path: "/profile/:userID",
+    //     element: <ProfilePage />,
+    //     loader: profileLoader
+    //   },
+    //   {
+    //     path: "/generate",
+    //     element: <GeneratePage />,
+    //     loader: generateLoader
+    //   },
+    //   {
+    //     path: "/sucess",
+    //     element: <Success />,
+    //     loader: successLoader
+    //   },
+    //   {
+    //     path: "/recipes/:recipeID",
+    //     element: <RecipePage />,
+    //     loader: receipeLoader
+    //   },
+    //   {
+    //     path: "/default",
+    //     element: <DefaultPage />
+    //   }
+    // 
   }
 ]);
 
 function App() {
-  return <div classname="App">
+  return <div className="App">
     <RouterProvider router={router} />
   </div>
 }
