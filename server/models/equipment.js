@@ -1,11 +1,7 @@
-const equipmentSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-});
+import { mongoose } from "mongoose";
+
+import equipmentSchema from "./schemas/equipmentSchema.js";
 
 const equipment = mongoose.model("equipment", equipmentSchema);
 
-module.exports = equipment;
+export default equipment;
