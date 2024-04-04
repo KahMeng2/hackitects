@@ -56,8 +56,12 @@ const router = createBrowserRouter([
     //     loader: receipeLoader
     //   },
     //   {
-    //     path: "/default",
-    //     element: <DefaultPage />
+    //     path: "/landing",
+    //     element: <landingPage />
+    //   },
+    //   {
+    //     path: "sample",
+    //     element: <samplePage />
     //   }
     //]
   }

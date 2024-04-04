@@ -1,8 +1,8 @@
 /* Google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Gaegu&family=Lilita+One&display=swap');
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, "Lilita One", "Comfortaa";
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, "Lilita One", "Comfortaa", "Gaegu";
   line-height: 1;
   font-weight: 400;
 
@@ -29,6 +29,25 @@
   font-weight: 300;
   font-style: normal;
   }
+
+.gaegu-light {
+  font-family: "Gaegu", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+  
+.gaegu-regular {
+  font-family: "Gaegu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+  
+.gaegu-bold {
+  font-family: "Gaegu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+  
 
 /* Coolors Exported Palette - https://coolors.co/f6bd60-f7ede2-f5cac3-84a59d-f28482 */
 
@@ -72,6 +91,25 @@ h1 {
   line-height: 1.1;
 }
 
+.generate {
+  border-radius: 8px;
+  font-family: "Comfortaa";
+  background-color: #F6BD60;
+  font-size: larger;
+  margin: 10px;
+}
+
+#test {
+  font-family: "Gaegu";
+  font-size: x-large;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.generate:hover {
+  background-color: #F4AE3E;
+  border-color: #F4AE3E;
+}
 
 button {
   border-radius: 8px;
