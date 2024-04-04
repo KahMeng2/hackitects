@@ -10,7 +10,7 @@ const Main = () => {
             <div>
                 <Navbar/>
                 <div>
-                    something
+
                 </div>
                 <main>
                     <Outlet/>

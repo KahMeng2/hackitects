@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <Main/ >,
     loader: mainLoader,
     errorElement: <Error />,
-    // children: [
+    //children: [
     //   {
     //     index: true,
     //     element: <Dashboard />,
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
     //     path: "/default",
     //     element: <DefaultPage />
     //   }
-    // 
+    //]
   }
 ]);
 
