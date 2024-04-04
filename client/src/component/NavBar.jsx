@@ -4,14 +4,14 @@ import { mdiAccountCircle } from '@mdi/js';
 
 const Navbar = () => {
     return (
-        <div className="container" style={{display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#BEC9C0", width: "100vw"}}>
-            <span style={{color:"#688D84", fontFamily: "Lilita One", fontSize: 80}}>
+        <header className="container" style={{display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#BEC9C0", width: "100vw", paddingTop:"20px", paddingBottom:"20px"}}>
+            <span style={{color:"#688D84", fontFamily: "Lilita One", fontSize: 40, marginLeft:"70px"}}>
                 underCOOK'D
             </span>
-            <NavLink to="/">
-                <Icon path={mdiAccountCircle} size={2.5} color={"#688D84"} className="usericon"/>
+            <NavLink to="/" style={{marginRight: "70px"}}>
+                <Icon path={mdiAccountCircle} size={2} color={"#688D84"} className="usericon"/>
             </NavLink>
-        </div>
+        </header>
     )
 }
 
