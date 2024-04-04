@@ -1,17 +1,17 @@
-import { Form, NavLink } from "react-router-dom"
+import { Form, NavLink, Navigate, useNavigate, Link } from "react-router-dom"
+import Icon from '@mdi/react';
+import { mdiAccountCircle } from '@mdi/js';
 
 const Navbar = () => {
     return (
-        <nav>
+        <div className="container" style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
             <NavLink to="/">
-                <button>
-                    <span>User Profile</span>
-                </button>
-                <span style={{color:"lightcoral", fontFamily: "Lilita One", fontSize: 80}}>
-                    underCOOK'D
-                </span>
+                <Icon path={mdiAccountCircle} size={2.5} color={"lightcoral"} className="usericon"/>
             </NavLink>
-        </nav>
+            <span style={{color:"lightcoral", fontFamily: "Lilita One", fontSize: 80, paddingLeft: 150}}>
+                underCOOK'D
+            </span>
+        </div>
     )
 }
 
