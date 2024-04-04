@@ -31,7 +31,12 @@ const router = createBrowserRouter([
         loader: loginLoader
       },
       {
-        path: "/profile",
+        path: "/registration",
+        element: <RegistrationPage />,
+        loader: registrationLoader
+      },
+      {
+        path: "/profile/:userID",
         element: <ProfilePage />,
         loader: profileLoader
       },
@@ -46,8 +51,9 @@ const router = createBrowserRouter([
         loader: successLoader
       },
       {
-        path: ":recipe",
+        path: "/recipes/:recipeID",
         element: <RecipePage />,
+        loader: receipeLoader
       },
       {
         path: "/default",
