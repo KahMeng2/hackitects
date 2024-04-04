@@ -3,7 +3,7 @@ import express from "express";
 
 const recipeApi = express.Router();
 
-// http://localhost:3000/api/recipe link
+// http://localhost:3000/api/recipes link
 
 // Helper functions to find recipes
 async function findrecipe(req, res, next) {
@@ -31,23 +31,6 @@ recipeApi.get("/:id", findrecipe, (req, res) => {
   } catch (e) {
     console.log(e);
     res.status(404).end();
-  }
-});
-
-// Stores new recipes
-recipeApi.post("/addRecipe", async (req, res) => {
-  const recipe = new Recipe({
-    ingredients: req.body.ingredients,
-    equipments: req.body.equipments,
-    servings: req.body.servings,
-    duration: req.body.duration,
-  });
-  try {
-    const newRecipe = await recipe.save();
-    res.status(201).json(newRecipe);
-  } catch (e) {
-    console.log(e);
-    res.status(400).json({ message: e.message });
   }
 });
 
@@ -93,6 +76,23 @@ recipeApi.patch("/:id", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// Stores new recipes
+recipeApi.post("/addRecipe", async (req, res) => {
+  const recipe = new Recipe({
+    ingredients: req.body.ingredients,
+    equipments: req.body.equipments,
+    servings: req.body.servings,
+    duration: req.body.duration,
+  });
+  try {
+    const newRecipe = await recipe.save();
+    res.status(201).json(newRecipe);
+  } catch (e) {
+    console.log(e);
+    res.status(400).json({ message: e.message });
   }
 });
 
