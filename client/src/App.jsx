@@ -5,12 +5,27 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter([]);
+function mainLoader() {
+  const userName = fetchData("userName");
+  return { userName }
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main/ >,
+    loader: mainLoader,
+    errorElement: <Error />,
+    children: [
+
+    ]
+  }
+]);
 
 function App() {
-  return ( <div></div>
-    
-  )
+  return <div classname="App">
+    <RouterProvider router={router} />
+  </div>
 }
 
 export default App
