@@ -5,9 +5,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+// Layouts
+import Main from "./layouts/Main";
+
 function mainLoader() {
-  const userName = fetchData("userName");
-  return { userName }
+  return { }
 }
 
 const router = createBrowserRouter([
@@ -17,7 +19,46 @@ const router = createBrowserRouter([
     loader: mainLoader,
     errorElement: <Error />,
     children: [
-
+      {
+        index: true,
+        element: <Dashboard />,
+        loader: dashboardLoader,
+        action: dashboardAction
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+        loader: loginLoader
+      },
+      {
+        path: "/registration",
+        element: <RegistrationPage />,
+        loader: registrationLoader
+      },
+      {
+        path: "/profile/:userID",
+        element: <ProfilePage />,
+        loader: profileLoader
+      },
+      {
+        path: "/generate",
+        element: <GeneratePage />,
+        loader: generateLoader
+      },
+      {
+        path: "/sucess",
+        element: <Success />,
+        loader: successLoader
+      },
+      {
+        path: "/recipes/:recipeID",
+        element: <RecipePage />,
+        loader: receipeLoader
+      },
+      {
+        path: "/default",
+        element: <DefaultPage />
+      }
     ]
   }
 ]);
