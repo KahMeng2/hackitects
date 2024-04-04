@@ -4,6 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
+
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -11,6 +12,42 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Lilita+One&display=swap");
+
+.lilita-one-regular {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+.comfortaa {
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  }
+
+/* Coolors Exported Palette - https://coolors.co/f6bd60-f7ede2-f5cac3-84a59d-f28482 */
+
+/* CSS HEX */
+:root{
+  --hunyadi-yellow: #f6bd60ff;
+  --linen: #f7ede2ff;
+  --tea-rose-red: #f5cac3ff;
+  --cambridge-blue: #84a59dff;
+  --light-coral: #f28482ff;
+}
+
+/* CSS HSL */
+:root{
+  --hunyadi-yellow: hsla(37, 89%, 67%, 1);
+  --linen: hsla(31, 57%, 93%, 1);
+  --tea-rose-red: hsla(8, 71%, 86%, 1);
+  --cambridge-blue: hsla(165, 15%, 58%, 1);
+  --light-coral: hsla(1, 81%, 73%, 1);
 }
 
 a {
