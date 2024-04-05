@@ -17,19 +17,10 @@ const RecipeGrid = ({ recipes }) => {
         cardContainer: {
             backgroundColor: '#F7E1C',
             width: '100%',
-            height: '600px',
         }, 
         col: {
             flex: 1,
             flexBasis: '25%'
-        },
-        card: {
-            backgroundColor: 'var(--hunyadi-yellow)',
-            borderRadius: 40,
-            height: '220px',
-            width: '100%',
-            border: '0',
-            padding: '0'
         },
         cardImage: {
             objectFit: 'cover',
@@ -40,7 +31,7 @@ const RecipeGrid = ({ recipes }) => {
         cardTitle: {
             color: '#FFFFFF',
             fontFamily: 'Gaegu',
-            fontSize: '80',
+            fontSize: 24,
             textOverflow: 'ellipsis',
             whiteSpace: 'noWrap',
             webkitLineClamp: 1,
@@ -51,7 +42,7 @@ const RecipeGrid = ({ recipes }) => {
     return (
         <div className='gap-5' style={styles.row} >
             {recipes.map((recipe, idx) => (
-                <Card key={idx}  className="recipe-card shadow" style={styles.card}>
+                <Card key={idx}  className="all-recipe-card shadow">
                     <div style={{ backgroundImage: `url(${recipe.image})`, 
                                     backgroundRepeat: 'no-repeat', 
                                     backgroundPosition: 'center', 

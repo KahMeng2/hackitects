@@ -16,15 +16,15 @@ const AllRecipesPage = () => {
         title: {
             color: 'var(--hunyadi-yellow)',
             fontFamily: 'Readex Pro',
-            marginTop: '40px',
+            paddingTop: '40px',
             marginBottom: '40px',
-            fontSize: '80'
+            fontSize: 64
           }
     }
 
     return (
         <div className="container">
-            <h1 style={styles.title}>All Recipes</h1>
+            <h1 style={styles.title}>All Saved Recipes</h1>
             <RecipeGrid recipes={recipes} />
         </div>
     );

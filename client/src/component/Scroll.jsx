@@ -55,14 +55,19 @@ const Scroll = ({ recipes, colour }) => {
     }
 
     return (
-        <div className="recipe-grid" style={styles.cardContainer}>
+        <div className="recipe-grid gap-5" style={styles.cardContainer}>
             <Row className='row' style={{display: "flex", flexWrap: "nowrap", marginTop: "50px"}}>
                 {recipes.map((recipe, idx) => (
                     <Col className='col' key={idx} style={{width: "100%"}}>
-                        <Card className="recipe-card" style={styles.card}>
-                            <Card.Img variant="top" src={recipe.image} alt={recipe.title}  style={styles.cardImage}/>
-                            <Card.Body>
-                                <Card.Title style={styles.cardTitle}>{recipe.title}</Card.Title>
+                        <Card className="recipe-card shadow" style={styles.card}>
+                            <div style={{ backgroundImage: `url(${recipe.image})`, 
+                                        backgroundRepeat: 'no-repeat', 
+                                        backgroundPosition: 'center', 
+                                        backgroundSize: 'cover', 
+                                        height: '150px', 
+                                        borderRadius: '40px 40px 0 0'}}/>
+                            <Card.Body style={{ overflow: 'hidden' }}>
+                                <h5 style={styles.cardTitle}>{recipe.title}</h5>
                             </Card.Body>
                         </Card>
                     </Col>
