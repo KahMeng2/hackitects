@@ -100,14 +100,17 @@ mealPlanApi.patch("/updateMealPlan/:id", async (req, res) => {
 mealPlanApi.patch("/generateMealPlan/:id", async (req, res) => {
   // Gets the list of ingredients to be used in the algo
   const ingredients = req.body.ingredients;
+  const serving = req.body.servings;
   const { id } = req.params;
 
   // Gets list of recipes
   const recipeList = await Recipe.find();
   // Uses the function to get the list of TODO: ADD MORE SHIT
-  const generatedMealPlan = findOptimalPlan(ingredients, recipeList)[0];
-
-  // console.log("generated meal plan is ", generatedMealPlan);
+  const [generatedMealPlan, remainingIngredients] = findOptimalPlan(
+    ingredients,
+    recipeList,
+    serving
+  );
   const createdAt = new Date();
   try {
     // Find the recipe by ID and update it
@@ -130,6 +133,7 @@ mealPlanApi.patch("/generateMealPlan/:id", async (req, res) => {
     res.json({
       id: id,
       initialIngredients: ingredients,
+      remainingIngredients: remainingIngredients,
       generatedMealPlan: generatedMealPlan,
       date: createdAt,
     }); // Send the updated recipe as JSON response

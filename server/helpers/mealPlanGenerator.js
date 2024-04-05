@@ -1,6 +1,6 @@
 // Helper function to check if current meal plan still has enough ingredients to cook the selected recipe.
 // returns ingredients if it can be cooked, returns null if it cannot be cooked
-function isCookable(mealPlanIngredients, recipeIngredients) {
+function isCookable(mealPlanIngredients, recipeIngredients, ratio) {
   const adjustedIngredients = [];
 
   // Create a map to store available ingredients and their quantities
@@ -17,6 +17,7 @@ function isCookable(mealPlanIngredients, recipeIngredients) {
   // Iterate through the recipe ingredients
   for (const recipeIngredient of recipeIngredients) {
     const ingredientId = recipeIngredient.ingredient.toString();
+    // required volume depends on ratio
     const requiredVolume = recipeIngredient.volume;
     const availableVolume = availableIngredientsMap.get(ingredientId);
 
@@ -43,7 +44,8 @@ function isCookable(mealPlanIngredients, recipeIngredients) {
 function findBestMealPlan(possibleMealPlans, ingredients) {
   // TODO: Test separately
   var bestUsage = 0.0;
-  var bestMealPlan = [];
+  var bestMealPlan;
+  var bestRemainingIngredients;
   const originalIngredientsMap = new Map();
 
   // Populate the map with ingredients from the meal plan
@@ -71,51 +73,57 @@ function findBestMealPlan(possibleMealPlans, ingredients) {
     }
     const curUsage = accumulatedProbs / lenIngredients;
     // Checks if there is a better meal plan
-    if (curUsage > bestUsage) {
+    if (curUsage >= bestUsage) {
       bestUsage = curUsage;
-      bestMealPlan = [curMealPlan];
-    } else if (curUsage == bestUsage) {
-      bestMealPlan.push(curMealPlan);
+      bestMealPlan = curMealPlan;
+      bestRemainingIngredients = remainingIngredients;
     }
   });
   // Keep track of which is the best meal plan(s) so far.
-  // return solution list.
-  return bestMealPlan;
+  // return solution list and the remaining ingredients
+  return [bestMealPlan, bestRemainingIngredients];
 }
 
 // Helper function to check %usage of original ingredient list
-export function findOptimalPlan(ingredients, recipes) {
+export function findOptimalPlan(ingredients, recipes, serving) {
   // possible meal plans holds a list of (mealPlan, remainingIngredients).
   // Where a meal plan is a list of recipes that can be cooked by the initial list of ingredients
   const possibleMealPlans = [];
   //console.log("Recipes are HERE", recipes);
   // Step 1: For each recipe in the recipe list
   recipes.map((recipe) => {
+    // ratio to adjust the ingredient volume
+    const ratio = serving / recipe.servings;
+    const selectedRecipe = recipe;
+    adjustVolume(selectedRecipe, ratio);
+    selectedRecipe.servings = serving;
     // Step 2: Iterate through list of possible Meal Plans, and check if remaining ingredients can cook the recipe.
     // If cookable, append to the particular possibleMealPlans list
     possibleMealPlans.map((possibleMealPlan) => {
       const [curMealPlan, remainingIngredients] = possibleMealPlan;
       // Use a helper function to check
       const mealPlanIngredients = remainingIngredients;
-      const recipeIngredients = recipe.ingredients;
+      const recipeIngredients = selectedRecipe.ingredients;
 
       const adjustedIngredients = isCookable(
         mealPlanIngredients,
-        recipeIngredients
+        recipeIngredients,
+        ratio
       );
-      // If recipe can be cooked with ingredient set
-      // TODO: possibly might not update remaining ingredients!
       if (adjustedIngredients) {
-        curMealPlan.push(recipe);
+        curMealPlan.push(selectedRecipe);
         possibleMealPlan[1] = adjustedIngredients;
       }
       return possibleMealPlan;
     });
     // Step 3: Check if the full list of ingredients can cook the current recipe, if so, add it as a new possible solution.
-    const adjustedIngredients = isCookable(ingredients, recipe.ingredients);
+    const adjustedIngredients = isCookable(
+      ingredients,
+      selectedRecipe.ingredients,
+      ratio
+    );
     // If recipe can be cooked with ingredient set
     if (adjustedIngredients) {
-      const selectedRecipe = recipe;
       const newMealPlan = [[selectedRecipe], adjustedIngredients];
       possibleMealPlans.push(newMealPlan);
     }
@@ -123,4 +131,13 @@ export function findOptimalPlan(ingredients, recipes) {
   });
   // Step 4: After finishing. Run an algo to check which is optimal and return the most optimal solutions
   return findBestMealPlan(possibleMealPlans, ingredients);
+}
+// Helper function for adjusting ingredients in recipe to ratio
+function adjustVolume(recipe, ratio) {
+  const ingredientList = recipe.ingredients;
+  ingredientList.map((ingredient) => {
+    ingredient.volume = ingredient.volume * ratio;
+    ingredient.volume = ingredient.volume.toFixed(2);
+    return ingredient;
+  });
 }
