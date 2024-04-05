@@ -17,8 +17,8 @@ const GenButton = () => {
         }
         else {
             return {
-                bgcolour:"",
-                textcolour:""
+                bgcolour:"#F6BD60",
+                textcolour:"#FFF3DF"
             }
         }
     }
