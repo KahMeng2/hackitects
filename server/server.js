@@ -1,7 +1,6 @@
 import express from "express";
 import { mongoose } from "mongoose";
 import dotenv from "dotenv";
-import bodyParser from "body-parser";
 
 // Import api routes
 import api from "./routes.js";
@@ -9,7 +8,7 @@ import api from "./routes.js";
 const app = express();
 dotenv.config();
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("Successful response.");
