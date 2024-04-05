@@ -8,6 +8,7 @@ import DashboardPage from './pages/DashboardPage'
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LogInPage";
 
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
     loader: mainLoader,
     //errorElement: <Error />,
     children: [
-      {
+    //   {
     //     index: true,
           path: "/dashboard",
           element: <DashboardPage />,
@@ -74,10 +75,10 @@ const router = createBrowserRouter([
         element: <AllRecipesPage />,
         //loader: receipeLoader
       },
-      {
-          path: "/landing",
-          element: <LandingPage />
-      },
+    //   {
+    //     path: "/landing",
+    //     element: <landingPage />
+    //   },
     //   {
     //     path: "sample",
     //     element: <samplePage />
@@ -90,6 +91,10 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router} />      
+      <div className='search-bar-container'>
+        <Test setResults />
+      </div>
+            
     </div>
       
   );

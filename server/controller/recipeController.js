@@ -47,7 +47,7 @@ recipeApi.delete("/:id", findrecipe, async (req, res) => {
 // Updates new recipes
 recipeApi.patch("/:id", async (req, res) => {
   const { id } = req.params; // Extract the recipe ID from the URL params
-  const { ingredients, equipments, servings, duration } = req.body; // Extract updated data from the request body
+  const { ingredients, equipments, servings, duration, image } = req.body; // Extract updated data from the request body
 
   try {
     // Find the recipe by ID and update it
@@ -56,10 +56,11 @@ recipeApi.patch("/:id", async (req, res) => {
       {
         // Update fields
         $set: {
-          ingredients,
-          equipments,
-          servings,
-          duration,
+          ingredients: ingredients,
+          equipments: equipments,
+          servings: servings,
+          duration: duration,
+          image: image,
         },
       },
       {
@@ -85,6 +86,7 @@ recipeApi.post("/addRecipe", async (req, res) => {
     name: req.body.name,
     description: req.body.description,
     ingredients: req.body.ingredients,
+    image: req.body.image,
     equipments: req.body.equipments,
     servings: req.body.servings,
     duration: req.body.duration,
