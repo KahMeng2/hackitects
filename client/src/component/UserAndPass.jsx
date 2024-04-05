@@ -1,4 +1,5 @@
 import { Form } from "react-router-dom"
+import RegisButton from "./RegisterButton"
 
 
 const UserAndPW = () => {
@@ -27,7 +28,11 @@ const UserAndPW = () => {
                 <h4 style={{color:"#688D84", fontWeight:"500", textAlign:"left"}}>Password</h4>
                 <input type="password" style={styles.input}/>
             </div>
+            <div style={{marginTop:"40px"}}>
+                <RegisButton/>
+            </div>
         </div>
+        
     )
 }
 
