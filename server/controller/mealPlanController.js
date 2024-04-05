@@ -100,17 +100,37 @@ mealPlanApi.patch("/updateMealPlan/:id", async (req, res) => {
 // Create meal plan: Generates the meal plan based on the
 mealPlanApi.patch("/generateMealPlan/:id", async (req, res) => {
   // Gets the list of ingredients to be used in the algo
-  ingredients = req.body.ingredients;
-  console.log(ingredients);
+  const ingredients = req.body.ingredients;
+  const { id } = req.params;
+
   // Gets list of recipes
-  recipeList = [];
-  Recipe.find({}, (err, recipes) => {
-    if (e) {
-      console.log(e);
-    } else {
-      recipeList = recipes;
-    }
-  });
+  const recipeList = await Recipe.find();
   // Uses the function to get the list of
-  const mealPlan = findOptimalPlan(ingredients, recipeList);
+  const generatedMealPlan = findOptimalPlan(ingredients, recipeList)[0];
+
+  // console.log("generated meal plan is ", generatedMealPlan);
+  const createdAt = Date.now();
+  try {
+    // Find the recipe by ID and update it
+    const updates = {
+      $set: {
+        mealPlans: generatedMealPlan,
+        generated: true,
+        createdAt: createdAt,
+      },
+    };
+    const updateMealPlan = await MealPlan.updateOne(
+      { _id: id }, // Filter to find the meal plan
+      updates // Updates to be applied
+    );
+
+    if (!updateMealPlan) {
+      return res.status(404).json({ message: "Recipe not found" });
+    }
+
+    res.json(updateMealPlan); // Send the updated recipe as JSON response
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 });
