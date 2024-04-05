@@ -1,10 +1,11 @@
 /* Google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Gaegu&family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Gaegu&family=Lilita+One&family=Readex+Pro&display=swap');
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, "Lilita One", "Comfortaa", "Gaegu";
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, "Lilita One", "Comfortaa", "Gaegu", "Readex Pro";
   line-height: 1;
   font-weight: 400;
+  padding: 0;
 
   color-scheme: light dark;
 
@@ -45,6 +46,12 @@
 .gaegu-bold {
   font-family: "Gaegu", sans-serif;
   font-weight: 700;
+  font-style: normal;
+}
+
+.readex-regular {
+  font-family: "Readex Pro", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
   
