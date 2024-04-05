@@ -4,8 +4,8 @@
 // Another end point is to generate a meal plan
 import MealPlan from "../models/mealPlan.js";
 import express from "express";
-import ingredientSchema from "../models/schemas/ingredientSchema.js";
 import Recipe from "../models/recipe.js";
+import { findOptimalPlan } from "../helpers/mealPlanGenerator.js";
 
 const mealPlanApi = express.Router();
 
@@ -112,4 +112,5 @@ mealPlanApi.patch("/generateMealPlan/:id", async (req, res) => {
     }
   });
   // Uses the function to get the list of
+  const mealPlan = findOptimalPlan(ingredients, recipeList);
 });

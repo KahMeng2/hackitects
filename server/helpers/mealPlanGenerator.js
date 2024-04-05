@@ -39,32 +39,57 @@ function isCookable(mealPlanIngredients, recipeIngredients) {
   // Return the adjusted list of ingredients
   return adjustedIngredients;
 }
+// Gets all possible meal plans and returns the best meal plan based on %usage of ingredientlist.
+// Possible to return more than one meal plan
+function findBestMealPlan(possibleMealPlans, ingredients) {
+  // TODO: Test separately
+  bestUsage = 100.0;
+  bestMealPlan = [];
+  // Iterate through all meal plans and their remaining ingredients.
+  possibleMealPlans.map((possibleMealPlan) => {
+    const [curMealPlan, remainingIngredients] = possibleMealPlan;
+    // Check how much of the remaining ingredients are used up
+  });
+  // Keep track of which is the best meal plan(s) so far.
+  // return solution list.
+}
+
+// Helper function to check %usage of original ingredient list
 
 export function findOptimalPlan(ingredients, recipes) {
-  // Initialise variables
-  // An array storing all solutions. A solution is a list of recipes and the remaining ingredient list.
-  // possible meal plans holds a list of (mealPlan, remainingIngredients)
+  // possible meal plans holds a list of (mealPlan, remainingIngredients).
+  // Where a meal plan is a list of recipes that can be cooked by the initial list of ingredients
   possibleMealPlans = [];
   // Step 1: For each recipe in the recipe list
   recipes.map((recipe) => {
-    // Step 2: Iterate through list of possible Meal Plans, and check if remaining ingredients can cook the recipe. If cookable, append to the particular possibleMealPlans list
+    // Step 2: Iterate through list of possible Meal Plans, and check if remaining ingredients can cook the recipe.
+    // If cookable, append to the particular possibleMealPlans list
     possibleMealPlans.map((possibleMealPlan) => {
+      const [curMealPlan, remainingIngredients] = possibleMealPlan;
       // Use a helper function to check
-      const mealPlanIngredients = possibleMealPlan.ingredients;
+      const mealPlanIngredients = remainingIngredients;
       const recipeIngredients = recipe.ingredients;
 
       const adjustedIngredients = isCookable(
         mealPlanIngredients,
         recipeIngredients
       );
-      // If recipe
+      // If recipe can be cooked with ingredient set
+      // TODO: possibly might not update remaining ingredients!
       if (adjustedIngredients) {
-        const { mealPlan, remainingIngredients } = possibleMealPlan;
+        curMealPlan.push(recipe);
+        remainingIngredients = adjustedIngredients;
+        return curMealPlan, remainingIngredients;
       }
     });
+    // Step 3: Check if the full list of ingredients can cook the current recipe, if so, add it as a new possible solution.
+    const adjustedIngredients = isCookable(ingredients, recipe);
+    // If recipe can be cooked with ingredient set
+    if (adjustedIngredients) {
+      const newMealPlan = ([recipe], adjustedIngredients);
+      possibleMealPlan.push(newMealPlan);
+    }
   });
-
-  // Step 3: Check if the full list of ingredients can cook the current recipe, if so, add it as a new possible solution.
   // Step 4: After finishing. Run an algo to check which is optimal and return the most optimal solutions
-  // For each recipe
+  return findBestMealPlan(possibleMealPlan, ingredients);
 }
