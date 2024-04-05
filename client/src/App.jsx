@@ -1,5 +1,5 @@
 import "./App.css";
-import SearchBar_test from './component/SearchBar_test';
+import Test from './component/SearchBar_test';
 import React from 'react';
 
 import {
@@ -73,14 +73,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [results, setResults] = useState([]);
   return (
     <div className="App">
       <RouterProvider router={router} />
       
       <div className='search-bar-container'>
-        <SearchBar_test setResults={setResults} />
-        <SearchResultList results={results} />
+        <Test setResults />
       </div>
             
 

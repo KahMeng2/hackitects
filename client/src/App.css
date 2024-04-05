@@ -51,3 +51,8 @@
   align-items: center;
   min-width: 200px;
 }
+
+
+body {
+  color: black; /* Changes font color to black */
+}
