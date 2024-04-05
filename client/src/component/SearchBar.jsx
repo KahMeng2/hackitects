@@ -86,9 +86,3 @@ function SearchBar({ OnSearch }) {
 }
 
 export default SearchBar
-
-
-
-
-
-
