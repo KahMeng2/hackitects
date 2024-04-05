@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { Units } from "../enums/units";
-import { IngredientTypes } from "../enums/IngredientTypes";
+import { Units } from "../enums/units.js";
+import { IngredientTypes } from "../enums/IngredientTypes.js";
 
 const ingredientSchema = new mongoose.Schema({
   ingredientType: {
@@ -15,7 +15,7 @@ const ingredientSchema = new mongoose.Schema({
   subType: {
     type: String,
   },
-  units: {
+  unit: {
     type: String,
     required: true,
     enum: Units,
