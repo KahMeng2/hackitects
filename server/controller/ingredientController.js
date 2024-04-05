@@ -53,6 +53,24 @@ ingredientApi.get("/allIngredients", async (req, res) => {
   }
 });
 
+// Endpoint for autocomplete suggestions for ingredients
+ingredientApi.get("/autocomplete", async (req, res) => {
+  try {
+    // Extract the search query from the request query parameters
+    const { name } = req.query;
+    console.log(req.query);
+    // Perform a case-insensitive search for ingredients that start with the query
+    const ingredients = await Ingredient.find({
+      primaryType: { $regex: `^${name}`, $options: "i" },
+    }).select("primaryType");
+
+    res.json(ingredients); // Send the list of ingredient names as JSON response
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 // Stores new ingredients
 ingredientApi.post("/addIngredient", async (req, res) => {
   console.log(req.body);
