@@ -1,0 +1,15 @@
+export const IngredientTypes = Object.freeze({
+  Poultry: "Poultry",
+  Fruits: "Fruits",
+  Meats: "Meats",
+  Dairy: "Dairy",
+  Fish: "Fish",
+  Seafood: "Seafood",
+  Herbs_Spices: "Herbs and Spices",
+  Sugar_Sweeteners: "Sugar and Sweeteners",
+  Baking: "Baking",
+  Pasta: "Pasta",
+  Oils_Vinegars: "Oils and Vinegars",
+  Canned_Food: "Canned Food",
+  Soups_Stocks: "Soups and Stocks",
+});

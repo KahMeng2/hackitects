@@ -28,28 +28,28 @@ async function findIngredient(req, res, next) {
 // Example: /ingredients?filter[field]=value&sort=field:asc
 ingredientApi.get("/allIngredients", async (req, res) => {
   try {
-      let query = {};
+    let query = {};
 
-      // Filtering
-      // Example: Filter by primaryType (primaryType)
-      for (const key in req.query.filter) {
-          query[key] = req.query.filter[key];
-      }
+    // Filtering
+    // Example: Filter by primaryType (primaryType)
+    for (const key in req.query.filter) {
+      query[key] = req.query.filter[key];
+    }
 
-      // Sorting
-      // Example: Sort primaryType by asc (primaryType:asc)
-      // Example: Sort ingredientType by desc (ingredientType:desc)
-      let sort = {};
-      if (req.query.sort) {
-          const [field, order] = req.query.sort.split(':');
-          sort[field] = order === 'asc' ? 1 : -1;
-      }
+    // Sorting
+    // Example: Sort primaryType by asc (primaryType:asc)
+    // Example: Sort ingredientType by desc (ingredientType:desc)
+    let sort = {};
+    if (req.query.sort) {
+      const [field, order] = req.query.sort.split(":");
+      sort[field] = order === "asc" ? 1 : -1;
+    }
 
-      const items = await Ingredient.find(query).sort(sort);
-      res.status(200).json(items);
+    const items = await Ingredient.find(query).sort(sort);
+    res.status(200).json(items);
   } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Server Error' });
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
   }
 });
 
@@ -60,7 +60,7 @@ ingredientApi.post("/addIngredient", async (req, res) => {
     ingredientType: req.body.ingredientType,
     primaryType: req.body.primaryType,
     subType: req.body.subType,
-    units: req.body.units,
+    unit: req.body.unit,
   });
   try {
     const newIngredient = await ingredient.save();
