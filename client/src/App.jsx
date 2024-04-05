@@ -81,15 +81,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [results, setResults] = useState([]);
   return (
     <div className="App">
       <RouterProvider router={router} />      
-      <div className='search-bar-container'>
-        <SearchBar_test setResults={setResults} />
-        <SearchResultList results={results} />
-      </div>
-            
     </div>
       
   );
