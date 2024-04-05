@@ -1,4 +1,5 @@
 import RecipeGrid from '/src/component/RecipeGrid';
+import Scroll from "../component/Scroll"
 
 const AllRecipesPage = () => {
     const recipes = [
@@ -7,7 +8,7 @@ const AllRecipesPage = () => {
         { title: 'Chocolate Cake', image: '/src/assets/chocolate-cake.jpg' },
         { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' },
         { title: 'Chicken Curry', image: '/src/assets/chicken-curry.jpg' },
-        { title: 'Chocolate Cake', image: '/src/assets/chocolate-cake.jpg' },
+        { title: 'Chocolate Cake', image: '/src/assets/chocolate-cake.jpg' }
         // Add more recipes as needed
     ];
 

@@ -67,10 +67,10 @@ const router = createBrowserRouter([
         element: <AllRecipesPage />,
         //loader: receipeLoader
       },
-    //   {
-    //     path: "/landing",
-    //     element: <landingPage />
-    //   },
+      {
+          path: "/landing",
+          element: <landingPage />
+      },
     //   {
     //     path: "sample",
     //     element: <samplePage />

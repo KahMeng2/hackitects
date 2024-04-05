@@ -18,7 +18,6 @@ const RecipeGrid = ({ recipes }) => {
             backgroundColor: '#F7E1C',
             width: '100%',
             height: '600px',
-
         }, 
         col: {
             flex: 1,
@@ -47,7 +46,7 @@ const RecipeGrid = ({ recipes }) => {
             webkitLineClamp: 1,
             overflow: 'hidden'
         }
-      }
+    }
 
     return (
         <div className='gap-5' style={styles.row} >
