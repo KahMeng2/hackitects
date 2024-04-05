@@ -1,12 +1,12 @@
 .scroll-card {
-    background-color: #F5CAC3 !important;
+    height: 150px !important;
 }
 .all-recipe-card {
     background-color: var(--hunyadi-yellow) !important;
+    height: 220px !important;
 }
 .all-recipe-card, .scroll-card {
     border-radius: 40px !important;
-    height: 220px !important;
     width: 100%;
     border: 0 !important;
     padding: 0;
@@ -23,4 +23,19 @@
     opacity: 0.75;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
+}
+.swiper-pagination-bullet-active {
+
+}
+
+.swiper-pagination-bullet {
+    width: 5px;
+    height: 5px;
+    background-color: black;
+    
+}
+.scroll-recipes {
+
+}
+.swiper-pagination-horizontal {
 }
