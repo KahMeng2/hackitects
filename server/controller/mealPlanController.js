@@ -64,9 +64,9 @@ mealPlanApi.post("/initialiseMealPlan", async (req, res) => {
 // Updates a meal plan. Used to save ingredients that have been added by the user
 mealPlanApi.patch("/updateMealPlan/:id", async (req, res) => {
   const { id } = req.params;
-  const { ingredients, mealPlans } = req.body;
+  const { ingredients } = req.body;
   const generated = false;
-  const createdAt = Date.now();
+  const createdAt = new Date();
   try {
     // Find the recipe by ID and update it
     const updateMealPlan = await MealPlan.findByIdAndUpdate(
@@ -75,7 +75,6 @@ mealPlanApi.patch("/updateMealPlan/:id", async (req, res) => {
         // Update fields
         $set: {
           ingredients,
-          mealPlans,
           generated,
           createdAt,
         },
@@ -100,17 +99,46 @@ mealPlanApi.patch("/updateMealPlan/:id", async (req, res) => {
 // Create meal plan: Generates the meal plan based on the
 mealPlanApi.patch("/generateMealPlan/:id", async (req, res) => {
   // Gets the list of ingredients to be used in the algo
-  ingredients = req.body.ingredients;
-  console.log(ingredients);
+  const ingredients = req.body.ingredients;
+  const serving = req.body.servings;
+  const { id } = req.params;
+
   // Gets list of recipes
-  recipeList = [];
-  Recipe.find({}, (err, recipes) => {
-    if (e) {
-      console.log(e);
-    } else {
-      recipeList = recipes;
+  const recipeList = await Recipe.find();
+  // Uses the function to get the list of TODO: ADD MORE SHIT
+  const [generatedMealPlan, remainingIngredients] = findOptimalPlan(
+    ingredients,
+    recipeList,
+    serving
+  );
+  const createdAt = new Date();
+  try {
+    // Find the recipe by ID and update it
+    const updates = {
+      $set: {
+        mealPlans: generatedMealPlan,
+        generated: true,
+        createdAt: createdAt,
+      },
+    };
+    const updateMealPlan = await MealPlan.updateOne(
+      { _id: id }, // Filter to find the meal plan
+      updates // Updates to be applied
+    );
+
+    if (!updateMealPlan) {
+      return res.status(404).json({ message: "Recipe not found" });
     }
-  });
-  // Uses the function to get the list of
-  const mealPlan = findOptimalPlan(ingredients, recipeList);
+
+    res.json({
+      id: id,
+      initialIngredients: ingredients,
+      remainingIngredients: remainingIngredients,
+      generatedMealPlan: generatedMealPlan,
+      date: createdAt,
+    }); // Send the updated recipe as JSON response
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 });

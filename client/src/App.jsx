@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import "./App.css";
+import AllRecipesPage from './pages/AllRecipesPage';
+import RecipePage from './pages/RecipePage';
 import SearchBar_test from './component/SearchBar_test';
-import React from 'react';
 
 import {
   createBrowserRouter,
@@ -22,8 +24,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <Main/ >,
     loader: mainLoader,
-    errorElement: <Error />,
-    //children: [
+    //errorElement: <Error />,
+    children: [
     //   {
     //     index: true,
     //     element: <Dashboard />,
@@ -55,11 +57,16 @@ const router = createBrowserRouter([
     //     element: <Success />,
     //     loader: successLoader
     //   },
-    //   {
-    //     path: "/recipes/:recipeID",
-    //     element: <RecipePage />,
-    //     loader: receipeLoader
-    //   },
+      {
+        path: "/recipes/:recipeID",
+        element: <RecipePage />,
+        //loader: receipeLoader
+      },
+      {
+        path: "/recipes",
+        element: <AllRecipesPage />,
+        //loader: receipeLoader
+      },
     //   {
     //     path: "/landing",
     //     element: <landingPage />
@@ -68,7 +75,7 @@ const router = createBrowserRouter([
     //     path: "sample",
     //     element: <samplePage />
     //   }
-    //]
+    ]
   }
 ]);
 
@@ -76,14 +83,12 @@ function App() {
   const [results, setResults] = useState([]);
   return (
     <div className="App">
-      <RouterProvider router={router} />
-      
+      <RouterProvider router={router} />      
       <div className='search-bar-container'>
         <SearchBar_test setResults={setResults} />
         <SearchResultList results={results} />
       </div>
             
-
     </div>
       
   );
