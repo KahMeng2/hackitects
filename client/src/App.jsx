@@ -5,6 +5,7 @@ import RecipePage from './pages/RecipePage';
 import LandingPage from "./pages/LandingPage";
 import SearchBar_test from './component/SearchBar_test';
 import DashboardPage from './pages/DashboardPage'
+import SignUpPage from "./pages/SignUpPage";
 
 import {
   createBrowserRouter,
@@ -16,6 +17,7 @@ import Main from '../layouts/main';
 //import SearchBar from './component/SearchBar';
 import { useState } from 'react';
 import { SearchResultList } from './component/SearchResultList';
+import SignUpPage from "./pages/SignUpPage";
 
 function mainLoader() {
   return { }
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
     //     element: <LoginPage />,
     //     loader: loginLoader
     //   },
+      {
+          path: "/signup",
+          element: <SignUpPage/>
+      },
     //   {
     //     path: "/registration",
     //     element: <RegistrationPage />,
