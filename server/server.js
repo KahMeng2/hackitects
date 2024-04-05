@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", api);
-
 // Connects to database
 const conn = mongoose
   .connect(process.env.CONNECTION_URL)
