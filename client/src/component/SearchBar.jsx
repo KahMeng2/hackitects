@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./SearchBar.css"
 import { json } from 'react-router-dom';
 //import { FaSearch } from "react-icons/fa";
@@ -25,6 +25,25 @@ function SearchBar({ OnSearch }) {
             //console.log(results);
         });
     };
+
+    useEffect(() => {
+        if (query) {
+            fetchData(query).then((results)) => {
+                
+            }
+
+        }
+    })
+
+    const handleSearchClick = () => {
+        if (OnSearch) {
+            OnSearch(query);
+        }
+    };
+
+    const handleSaveClick = () => {
+        if (onSave)
+    }
     //when user input the new value, update the query value and call the setQuery function
     const handleInputChange = (Event) => {
         //update the query value
@@ -56,6 +75,10 @@ function SearchBar({ OnSearch }) {
             onChange={(e) => handleInputChange(e.target.value)}
 
             />
+            {/* 'Search' button triggers search based on the current input value */}
+            <button onClick={handleSearchClick}>Search</button>
+            {/* 'Save' button can trigger a save action in the parent component */}
+            <button onClick={handleSaveClick}>Save</button>
 
         </div>
     );

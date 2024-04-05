@@ -1,5 +1,6 @@
-import viteLogo from '/vite.svg'
 import "./App.css";
+import SearchBar_test from './component/SearchBar_test';
+import React from 'react';
 
 import {
   createBrowserRouter,
@@ -8,7 +9,7 @@ import {
 
 // Layouts
 import Main from '../layouts/main';
-import SearchBar from './component/SearchBar';
+//import SearchBar from './component/SearchBar';
 import { useState } from 'react';
 import { SearchResultList } from './component/SearchResultList';
 
@@ -75,13 +76,16 @@ function App() {
   const [results, setResults] = useState([]);
   return (
     <div className="App">
+      <RouterProvider router={router} />
+      
       <div className='search-bar-container'>
-        <SearchBar setResults={setResults} />
+        <SearchBar_test setResults={setResults} />
         <SearchResultList results={results} />
       </div>
             
-    <RouterProvider router={router} />
+
     </div>
+      
   );
 }
 
