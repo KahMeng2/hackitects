@@ -4,6 +4,7 @@ import AllRecipesPage from './pages/AllRecipesPage';
 import RecipePage from './pages/RecipePage';
 import LandingPage from "./pages/LandingPage";
 import SearchBar_test from './component/SearchBar_test';
+import DashboardPage from './pages/DashboardPage'
 
 import {
   createBrowserRouter,
@@ -27,12 +28,11 @@ const router = createBrowserRouter([
     loader: mainLoader,
     //errorElement: <Error />,
     children: [
-    //   {
+      {
     //     index: true,
-    //     element: <Dashboard />,
-    //     loader: dashboardLoader,
-    //     action: dashboardAction
-    //   },
+          path: "/dashboard",
+          element: <DashboardPage />,
+      },
     //   {
     //     path: "/login",
     //     element: <LoginPage />,

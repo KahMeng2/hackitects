@@ -9,6 +9,20 @@ const GenButton = () => {
 
     const location = useLocation();
 
+    const getColours = () => {
+        if (location.pathname === '/dashboard') {
+            return {
+                bgcolour: "#84A59D",
+                textcolour: "#F2F9F4"}
+        }
+        else {
+            return {
+                bgcolour:"",
+                textcolour:""
+            }
+        }
+    }
+
     // Conditionally render different components based on the current path
     const redirectToPath = () => {
         if (location.pathname === '/landing') {
@@ -19,17 +33,13 @@ const GenButton = () => {
             // You can handle other routes or conditions here
             return '/';
         }
-    }
+}
+
+    const colourtheme = getColours()
 
     return (
         <NavLink to={redirectToPath()}>
-            <div className="banner">
-                
-            </div>
-            <button className="generate">
-                GENERATE RECIPE
-            </button>
-            <button className="generate" id="test">
+            <button className="generate" style={{backgroundColor:colourtheme.bgcolour, color:colourtheme.textcolour}}>
                 GENERATE RECIPE
             </button>
         </NavLink>
