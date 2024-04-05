@@ -56,7 +56,6 @@ function findBestMealPlan(possibleMealPlans, ingredients) {
   // Iterate through all meal plans and their remaining ingredients.
   possibleMealPlans.map((possibleMealPlan) => {
     const [curMealPlan, remainingIngredients] = possibleMealPlan;
-    console.log("Cur meal plan ", curMealPlan);
     var accumulatedProbs = 0;
     // Is the length of initial ingredient the same as remaining ingredients?
     const lenIngredients = remainingIngredients.length;
@@ -71,7 +70,6 @@ function findBestMealPlan(possibleMealPlans, ingredients) {
       }
     }
     const curUsage = accumulatedProbs / lenIngredients;
-    console.log("usage is", curUsage);
     // Checks if there is a better meal plan
     if (curUsage > bestUsage) {
       bestUsage = curUsage;

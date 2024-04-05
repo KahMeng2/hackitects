@@ -64,9 +64,9 @@ mealPlanApi.post("/initialiseMealPlan", async (req, res) => {
 // Updates a meal plan. Used to save ingredients that have been added by the user
 mealPlanApi.patch("/updateMealPlan/:id", async (req, res) => {
   const { id } = req.params;
-  const { ingredients, mealPlans } = req.body;
+  const { ingredients } = req.body;
   const generated = false;
-  const createdAt = Date.now();
+  const createdAt = new Date();
   try {
     // Find the recipe by ID and update it
     const updateMealPlan = await MealPlan.findByIdAndUpdate(
@@ -75,7 +75,6 @@ mealPlanApi.patch("/updateMealPlan/:id", async (req, res) => {
         // Update fields
         $set: {
           ingredients,
-          mealPlans,
           generated,
           createdAt,
         },
@@ -105,11 +104,11 @@ mealPlanApi.patch("/generateMealPlan/:id", async (req, res) => {
 
   // Gets list of recipes
   const recipeList = await Recipe.find();
-  // Uses the function to get the list of
+  // Uses the function to get the list of TODO: ADD MORE SHIT
   const generatedMealPlan = findOptimalPlan(ingredients, recipeList)[0];
 
   // console.log("generated meal plan is ", generatedMealPlan);
-  const createdAt = Date.now();
+  const createdAt = new Date();
   try {
     // Find the recipe by ID and update it
     const updates = {
@@ -128,7 +127,12 @@ mealPlanApi.patch("/generateMealPlan/:id", async (req, res) => {
       return res.status(404).json({ message: "Recipe not found" });
     }
 
-    res.json(updateMealPlan); // Send the updated recipe as JSON response
+    res.json({
+      id: id,
+      initialIngredients: ingredients,
+      generatedMealPlan: generatedMealPlan,
+      date: createdAt,
+    }); // Send the updated recipe as JSON response
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
