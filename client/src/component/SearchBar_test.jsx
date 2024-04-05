@@ -29,7 +29,7 @@ const Test = () => {
       setSearchTerm(query);
       console.log(query)
       try {
-        const response = await fetch(`/api/ingredients/autocomplete?name=${query}`);
+        const response = await fetch(`http://localhost:3000/api/ingredients/autocomplete?name=${query}`);
         const data = await response.json();
         console.log(data)
         setSearchResults(data);
