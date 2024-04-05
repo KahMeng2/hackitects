@@ -60,11 +60,20 @@ ingredientApi.get("/autocomplete", async (req, res) => {
     const { name } = req.query;
     console.log(req.query);
     // Perform a case-insensitive search for ingredients that start with the query
+    if (name === "") {
+      res.json([]);
+      return;
+    }
     const ingredients = await Ingredient.find({
-      primaryType: { $regex: `^${name}`, $options: "i" },
-    }).select("primaryType");
-
-    res.json(ingredients); // Send the list of ingredient names as JSON response
+      name: { $regex: `^${name}`, $options: "i" },
+    });
+    console.log(ingredients);
+    const ingredientsWithCombinedTypes = ingredients.map((ingredient) => {
+      const combinedType = `${ingredient.name} `;
+      return combinedType;
+    });
+    console.log(ingredientsWithCombinedTypes.slice(0, 2));
+    res.json(ingredientsWithCombinedTypes.slice(0, 2)); // Send the list of ingredient names as JSON response
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -76,8 +85,7 @@ ingredientApi.post("/addIngredient", async (req, res) => {
   console.log(req.body);
   const ingredient = new Ingredient({
     ingredientType: req.body.ingredientType,
-    primaryType: req.body.primaryType,
-    subType: req.body.subType,
+    name: req.body.name,
     unit: req.body.unit,
   });
   try {
