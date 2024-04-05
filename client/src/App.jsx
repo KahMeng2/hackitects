@@ -19,6 +19,7 @@ import Main from '../layouts/main';
 //import SearchBar from './component/SearchBar';
 import { useState } from 'react';
 import { SearchResultList } from './component/SearchResultList';
+import IngredientInputPage from "./pages/IngredientInputPage";
 
 
 function mainLoader() {
@@ -32,8 +33,8 @@ const router = createBrowserRouter([
     loader: mainLoader,
     //errorElement: <Error />,
     children: [
-    //   {
-    //     index: true,
+       {
+         //index: true,
           path: "/dashboard",
           element: <DashboardPage />,
       },
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
     //     loader: successLoader
     //   },
       {
+        path: "/search",
+        element: <IngredientInputPage />
+      },
+      {
         path: "/recipes/:recipeID",
         element: <RecipePage />,
         //loader: receipeLoader
@@ -75,10 +80,10 @@ const router = createBrowserRouter([
         element: <AllRecipesPage />,
         //loader: receipeLoader
       },
-    //   {
-    //     path: "/landing",
-    //     element: <landingPage />
-    //   },
+       {
+         path: "/landing",
+         element: <LandingPage />
+       },
     //   {
     //     path: "sample",
     //     element: <samplePage />
@@ -91,9 +96,7 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router} />      
-      <div className='search-bar-container'>
-        <Test setResults />
-      </div>
+      
             
     </div>
       
