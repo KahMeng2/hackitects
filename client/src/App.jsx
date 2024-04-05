@@ -2,7 +2,12 @@
 import "./App.css";
 import AllRecipesPage from './pages/AllRecipesPage';
 import RecipePage from './pages/RecipePage';
-import Test from './component/SearchBar_test';
+import LandingPage from "./pages/LandingPage";
+import SearchBar_test from './component/SearchBar_test';
+import DashboardPage from './pages/DashboardPage'
+import SignUpPage from "./pages/SignUpPage";
+import LoginPage from "./pages/LogInPage";
+
 
 import {
   createBrowserRouter,
@@ -14,6 +19,7 @@ import Main from '../layouts/main';
 //import SearchBar from './component/SearchBar';
 import { useState } from 'react';
 import { SearchResultList } from './component/SearchResultList';
+
 
 function mainLoader() {
   return { }
@@ -28,15 +34,17 @@ const router = createBrowserRouter([
     children: [
     //   {
     //     index: true,
-    //     element: <Dashboard />,
-    //     loader: dashboardLoader,
-    //     action: dashboardAction
-    //   },
-    //   {
-    //     path: "/login",
-    //     element: <LoginPage />,
-    //     loader: loginLoader
-    //   },
+          path: "/dashboard",
+          element: <DashboardPage />,
+      },
+      {
+          path: "/login",
+          element: <LoginPage />,
+      },
+      {
+          path: "/signup",
+          element: <SignUpPage/>
+      },
     //   {
     //     path: "/registration",
     //     element: <RegistrationPage />,

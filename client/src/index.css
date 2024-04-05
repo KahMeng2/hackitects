@@ -1,5 +1,5 @@
 /* Google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Gaegu&family=Lilita+One&family=Readex+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Gaegu&family=Lilita+One&family=Readex+Pro:wght@160..700&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, "Lilita One", "Comfortaa", "Gaegu", "Readex Pro";
@@ -54,7 +54,12 @@
   font-weight: 400;
   font-style: normal;
 }
-  
+
+.readex-bold {
+  font-family: "Readex Pro", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 
 /* Coolors Exported Palette - https://coolors.co/f6bd60-f7ede2-f5cac3-84a59d-f28482 */
 
