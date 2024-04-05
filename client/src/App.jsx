@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import SearchBar_test from './component/SearchBar_test';
 import DashboardPage from './pages/DashboardPage'
 import SignUpPage from "./pages/SignUpPage";
+import LoginPage from "./pages/LogInPage";
 
 import {
   createBrowserRouter,
@@ -35,11 +36,10 @@ const router = createBrowserRouter([
           path: "/dashboard",
           element: <DashboardPage />,
       },
-    //   {
-    //     path: "/login",
-    //     element: <LoginPage />,
-    //     loader: loginLoader
-    //   },
+      {
+          path: "/login",
+          element: <LoginPage />,
+      },
       {
           path: "/signup",
           element: <SignUpPage/>
