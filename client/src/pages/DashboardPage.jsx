@@ -1,5 +1,6 @@
 import Scroll from "../component/Scroll";
-import GenButton from "../component/GenButton"
+import GenButton from "../component/GenButton";
+import Footer from "../component/Footer";
 
 const recipes = [
     { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' },
@@ -15,18 +16,20 @@ const recipes = [
 const DashboardPage = () => {
 
     return (
-        <div>
-            <div style={{paddingTop:"15px"}}>
+        <div style={{height:'85vh'}}>
+            <div>
                 <GenButton/>
             </div>
-            
-            <div>
-                <h2 style={{paddingTop:"10px", padddingBottom:"30px", textAlign: "left", marginLeft:"50px", fontFamily: "Readex Pro", color: "lightcoral"}}>Current recipes</h2>
+            <div style={{marginTop:'-30px'}}>
+                <h2 style={{ textAlign: "left", marginLeft:"50px", fontFamily: "Readex Pro", color: "lightcoral"}}>Current recipes</h2>
                 <Scroll recipes={recipes} colour={"red"}/>
             </div>
             <div>
-                <h2 style={{paddingTop:"20px", padddingBottom:"30px", textAlign: "left", marginLeft:"50px", fontFamily: "Readex Pro", color: "var(--hunyadi-yellow)"}}>Past recipes</h2>
+                <h2 style={{textAlign: "left", marginLeft:"50px", fontFamily: "Readex Pro", color: "var(--hunyadi-yellow)"}}>Past recipes</h2>
                 <Scroll recipes={recipes} colour={"yellow"}/>
+            </div>
+            <div style={{position:"fixed", bottom:"0", width:"100vw"}}>
+                <Footer/>
             </div>
         </div>
     )
