@@ -38,7 +38,7 @@ const UserAndPW = () => {
     }
 
     return (
-        <div>
+        <div style={{height:"100vh"}}>
             <div className="input-group mb-3" style={{fontFamily:"Readex Pro", display:"block"}}>
                 <h4 style={{color:textcolour, fontWeight:"500", textAlign:"left"}}>Username</h4>
                 <input placeholder="Type your username" style={styles.input}/>
@@ -47,7 +47,7 @@ const UserAndPW = () => {
                 <h4 style={{color:textcolour, fontWeight:"500", textAlign:"left"}}>Password</h4>
                 <input type="password" style={styles.input}/>
             </div>
-            <div style={{marginTop:"40px", paddingBottom:"50px"}}>
+            <div style={{marginTop:"40px"}}>
                 <RegisButton/>
             </div>
         </div>

@@ -15,7 +15,9 @@ const SignUpPage = () => {
                     <UserAndPW/>
                 </div>
             </div>
-            <Footer/>
+            <div style={{position:"fixed", bottom:"0", width:"100vw"}}>
+                <Footer/>
+            </div>
         </div>
     )
 }
