@@ -1,15 +1,20 @@
 import { mongoose } from "mongoose";
-import equipmentSchema from "./schemas/equipmentSchema";
-import MealPlan from "./mealPlan";
-const user = new mongoose.Schema({
+import mealPlanSchema from "./schemas/mealPlanSchema.js";
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
     unique: true,
   },
-  mealPlan: [MealPlan],
+  mealPlans: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "mealPlan",
+      required: true,
+    },
+  ],
 });
 
-const User = mongoose.model("user", user);
+const User = mongoose.model("user", userSchema);
 
 export default User;
