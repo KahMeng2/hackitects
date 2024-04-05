@@ -1,5 +1,6 @@
 import Banner from "../component/Banner";
-import Scroll from "../component/Scroll";
+import SwiperScroll from "../component/SwiperScroll";
+import Footer from "../component/Footer";
 
 const recipes = [
     { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' },
@@ -16,8 +17,8 @@ const LandingPage = () => {
     return (
         <div>
             <Banner/>
-            <Scroll recipes={recipes}/>
-
+            <SwiperScroll recipes={recipes}/>
+            <Footer/>
         </div>
     )
 }

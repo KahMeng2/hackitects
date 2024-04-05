@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Row, Col, Card, Carousel, CardGroup } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const RecipeGrid = ({ recipes }) => {
     const [index, setIndex] = useState(0);
