@@ -1,5 +1,9 @@
 import UserAndPW from "../component/UserAndPass"
 import Footer from "../component/Footer"
+import image_18 from "../assets/image_18.png"
+import image_19 from "../assets/image_19.png"
+import image_20 from "../assets/image_20.png"
+import image_21 from "../assets/image_21.png"
 
 
 const SignUpPage = () => {
