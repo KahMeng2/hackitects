@@ -2,9 +2,7 @@
 import "./App.css";
 import AllRecipesPage from './pages/AllRecipesPage';
 import RecipePage from './pages/RecipePage';
-import LandingPage from "./pages/LandingPage";
-import SearchBar_test from './component/SearchBar_test';
-import DashboardPage from './pages/DashboardPage'
+import Test from './component/SearchBar_test';
 
 import {
   createBrowserRouter,
@@ -28,11 +26,12 @@ const router = createBrowserRouter([
     loader: mainLoader,
     //errorElement: <Error />,
     children: [
-      {
+    //   {
     //     index: true,
-          path: "/dashboard",
-          element: <DashboardPage />,
-      },
+    //     element: <Dashboard />,
+    //     loader: dashboardLoader,
+    //     action: dashboardAction
+    //   },
     //   {
     //     path: "/login",
     //     element: <LoginPage />,
@@ -68,10 +67,10 @@ const router = createBrowserRouter([
         element: <AllRecipesPage />,
         //loader: receipeLoader
       },
-      {
-          path: "/landing",
-          element: <LandingPage />
-      },
+    //   {
+    //     path: "/landing",
+    //     element: <landingPage />
+    //   },
     //   {
     //     path: "sample",
     //     element: <samplePage />
@@ -84,6 +83,10 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router} />      
+      <div className='search-bar-container'>
+        <Test setResults />
+      </div>
+            
     </div>
       
   );

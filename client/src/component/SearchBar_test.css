@@ -16,6 +16,7 @@
   
   .search-input {
     flex-grow: 1;
+    color: black;
     padding: 10px;
     border: none;
     outline: none;
@@ -32,7 +33,7 @@
   
   /* Additional styling to remove the gap between buttons */
   .search-button {
-    border-right: 1px solid white;
+    border-right: 1px solid rgba(8, 8, 8, 0.839);
   }
   
   .results-container {
@@ -66,3 +67,32 @@
 .unit-select {
   cursor: pointer;
 }
+
+.selected-items-container {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 800px;
+    height: 100px; /* Fixed height */
+    overflow-y: auto; /* Make it scrollable */
+  }
+  
+  .selected-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .selected-item:last-child {
+    border-bottom: none;
+  }
+
+  .search-container, .results-container, .selected-items-container {
+    color: black; /* Ensures text within these containers is black */
+  }
+  
+  /* If you have specific elements you want to target, you can add more specific rules */
+  .search-input, .result-item, .selected-item {
+    color: black; /* Example of setting text color for specific elements */
+  }
+  
+  
