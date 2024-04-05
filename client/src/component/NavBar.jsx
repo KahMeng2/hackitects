@@ -4,7 +4,7 @@ import { mdiAccountCircle } from '@mdi/js';
 
 const Navbar = () => {
     return (
-        <header className="container" style={{display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#BEC9C0", maxWidth: "1500px", paddingTop:"20px", paddingBottom:"20px"}}>
+        <header className="container" style={{display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#BEC9C0", maxWidth: "1600px", paddingTop:"20px", paddingBottom:"20px"}}>
             <span style={{color:"#688D84", fontFamily: "Lilita One", fontSize: 40, marginLeft:"70px"}}>
                 underCOOK'D
             </span>

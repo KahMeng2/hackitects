@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Row, Col, Card, Carousel, CardGroup } from 'react-bootstrap';
 
-const RecipeGrid = ({ recipes }) => {
+const Scroll = ({ recipes }) => {
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
@@ -15,18 +15,15 @@ const RecipeGrid = ({ recipes }) => {
             height: '320px',
             position: 'relative',
             overflow: 'scroll',
-            borderRadius: "20px"
+            borderRadius: "20px",
         }, 
         card: {
             backgroundColor: '#FF8577',
             borderRadius: 40,
             height: '220px',
             width: '250px',
-            position: 'absolute',
-            marginTop: '50px',
-            marginLeft: '50px',
-            border: '0',
-            padding: '0'
+            padding: 0,
+            border: '0'
         },
         cardImage: {
             objectFit: 'cover',
@@ -37,15 +34,15 @@ const RecipeGrid = ({ recipes }) => {
         cardTitle: {
             color: '#FFFFFF',
             fontFamily: 'Gaegu',
-            fontSize: '7-'
+            fontSize: '7-',
         }
     }
 
     return (
         <Container className="recipe-grid container" style={styles.cardContainer}>
-            <Row className='row'>
+            <Row className='row' style={{display: "flex", flexWrap: "nowrap", marginTop: "50px"}}>
                 {recipes.map((recipe, idx) => (
-                    <Col className='col' key={idx}>
+                    <Col className='col' key={idx} style={{width: "100%"}}>
                         <Card className="recipe-card" style={styles.card}>
                             <Card.Img variant="top" src={recipe.image} alt={recipe.title}  style={styles.cardImage}/>
                             <Card.Body>
@@ -59,4 +56,4 @@ const RecipeGrid = ({ recipes }) => {
     );
 };
 
-export default RecipeGrid;
+export default Scroll;
