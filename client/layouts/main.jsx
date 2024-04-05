@@ -11,7 +11,7 @@ const Main = () => {
         return (
             <div>
                 <Navbar/>
-                <main>
+                <main style={{backgroundColor:"var(--linen)"}}>
                     <Outlet/>
                 </main>
             </div>
