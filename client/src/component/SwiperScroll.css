@@ -1,12 +1,17 @@
 .scroll-card {
     background-color: #F5CAC3 !important;
+}
+.all-recipe-card {
+    background-color: var(--hunyadi-yellow) !important;
+}
+.all-recipe-card, .scroll-card {
     border-radius: 40px !important;
     height: 220px !important;
     width: 100%;
     border: 0 !important;
     padding: 0;
 }
-.scroll-card-slide:hover {
+.all-recipe-card:hover, .scroll-card-slide:hover {
     transform: scale(1.1);
     transition: all ease-in-out 300ms;
 }
@@ -16,7 +21,6 @@
     background-size: cover; 
     height: 150px;
     opacity: 0.75;
-    /*border-radius: 40px 40px 0 0;*/
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
 }
