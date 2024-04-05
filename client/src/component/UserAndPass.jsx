@@ -1,14 +1,21 @@
 import { Form } from "react-router-dom"
 
 const UserAndPW = () => {
-    <Form>
-        <label>
-            Username: <input defaultValue="Type your username"/>
-        </label>
-        <label>
-            Password: <input type="password"/>
-        </label>
-    </Form>
+
+    return (
+        <div>
+            <div className="input-group mb-3">
+                <label>
+                    Username: <input defaultValue="Type your username"/>
+                </label>
+            </div>
+            <div className="input-group mb-3">
+                <label>
+                    Password: <input type="password"/>
+                </label>
+            </div>
+        </div>
+    )
 }
 
 export default UserAndPW

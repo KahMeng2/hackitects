@@ -17,7 +17,7 @@ import Main from '../layouts/main';
 //import SearchBar from './component/SearchBar';
 import { useState } from 'react';
 import { SearchResultList } from './component/SearchResultList';
-import SignUpPage from "./pages/SignUpPage";
+
 
 function mainLoader() {
   return { }
