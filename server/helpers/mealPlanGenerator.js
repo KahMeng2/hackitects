@@ -55,7 +55,6 @@ function findBestMealPlan(possibleMealPlans, ingredients) {
 }
 
 // Helper function to check %usage of original ingredient list
-
 export function findOptimalPlan(ingredients, recipes) {
   // possible meal plans holds a list of (mealPlan, remainingIngredients).
   // Where a meal plan is a list of recipes that can be cooked by the initial list of ingredients
