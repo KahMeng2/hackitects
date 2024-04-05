@@ -11,9 +11,11 @@ const Navbar = () => {
         return (
             <header style={{display: "flex", alignItems: "center", 
             justifyContent: "space-between", backgroundColor: "#BEC9C0", width:'100%', paddingTop:"5px", paddingBottom:"5px"}}>
-                <span style={{color:"#688D84", fontFamily: "Lilita One", fontSize: 32, marginLeft:"70px"}}>
-                    underCOOK'D
-                </span>
+                <NavLink to={'/landing'}>
+                    <span style={{color:"#688D84", fontFamily: "Lilita One", fontSize: 32, marginLeft:"70px"}}>
+                        underCOOK'D
+                    </span>
+                </NavLink>
             </header>
         )
     }
@@ -22,9 +24,11 @@ const Navbar = () => {
         return (
             <header style={{display: "flex", alignItems: "center", 
             justifyContent: "space-between", backgroundColor: "#CFD6DC", width:'100%', paddingTop:"5px", paddingBottom:"5px"}}>
-                <span style={{color:"var(--darker-blue)", fontFamily: "Lilita One", fontSize: 32, marginLeft:"70px"}}>
-                    underCOOK'D
-                </span>
+                <NavLink to={'/landing'}>
+                    <span style={{color:"var(--darker-blue)", fontFamily: "Lilita One", fontSize: 32, marginLeft:"70px"}}>
+                        underCOOK'D
+                    </span>
+                </NavLink>
             </header>
         )
     }
@@ -33,9 +37,11 @@ const Navbar = () => {
         return (
             <header style={{display: "flex", alignItems: "center", 
             justifyContent: "space-between", backgroundColor: "#BEC9C0", width:'100%', paddingTop:"5px", paddingBottom:"5px"}}>
-                <span style={{color:"#688D84", fontFamily: "Lilita One", fontSize: 32, marginLeft:"70px"}}>
-                    underCOOK'D
-                </span>
+                <Link to={'/landing'}>
+                    <span style={{color:"#688D84", fontFamily: "Lilita One", fontSize: 32, marginLeft:"70px", textDecoration:"none"}}>
+                        underCOOK'D
+                    </span>
+                </Link>
                 <AuthButtons/>
             </header>
         )
@@ -46,9 +52,11 @@ const Navbar = () => {
         return (
             <header style={{display: "flex", alignItems: "center", 
             justifyContent: "space-between", backgroundColor: "#BEC9C0", width:'100%', paddingTop:"5px", paddingBottom:"5px"}}>
-                <span style={{color:"#688D84", fontFamily: "Lilita One", fontSize: 32, marginLeft:"70px"}}>
-                    underCOOK'D
-                </span>
+                <NavLink to={'/dashboard'}>
+                    <span style={{color:"#688D84", fontFamily: "Lilita One", fontSize: 32, marginLeft:"70px"}}>
+                        underCOOK'D
+                    </span>
+                </NavLink>
                 <NavLink to="/" style={{marginRight: "70px"}}>
                     <Icon path={mdiAccountCircle} size={2} color={"#688D84"} className="usericon"/>
                 </NavLink>
