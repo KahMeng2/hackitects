@@ -43,8 +43,11 @@ userApi.get("/getLatestTwoMealPlans/:id", findUser, async (req, res) => {
     const newestMealPlans = await MealPlan.find({
       _id: { $in: user.mealPlans },
     });
+    // Bad hack do not use
     // Send the response with the newest meal plans
-    res.json(newestMealPlans);
+    res.json(
+      newestMealPlans.sort((a, b) => a.createdAt - b.createdAt).slice(0, 2)
+    );
   } catch (error) {
     console.error("Error fetching meal plans:", error);
     res.status(500).json({ error: "Internal server error" });
