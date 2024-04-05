@@ -32,7 +32,7 @@ const router = createBrowserRouter([
     loader: mainLoader,
     //errorElement: <Error />,
     children: [
-    //   {
+      {
     //     index: true,
           path: "/dashboard",
           element: <DashboardPage />,
