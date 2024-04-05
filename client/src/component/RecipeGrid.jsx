@@ -9,51 +9,63 @@ const RecipeGrid = ({ recipes }) => {
     };
 
     const styles = {
-        cardContainer: {
-            backgroundColor: '#FDDFDA',
+        row: {
+            display: 'grid',
             width: '100%',
-            height: '320px',
-            position: 'relative'
+            gridTemplateColumns: 'repeat(4, minmax(0, 1fr))'
+        },
+        cardContainer: {
+            backgroundColor: '#F7E1C',
+            width: '100%',
+            height: '600px',
+
         }, 
+        col: {
+            flex: 1,
+            flexBasis: '25%'
+        },
         card: {
-            backgroundColor: '#FF8577',
+            backgroundColor: 'var(--hunyadi-yellow)',
             borderRadius: 40,
             height: '220px',
-            width: '250px',
-            position: 'absolute',
-            marginTop: '50px',
-            marginLeft: '50px',
+            width: '100%',
             border: '0',
             padding: '0'
         },
         cardImage: {
             objectFit: 'cover',
-            width: '100%',
+            maxWidth: '200px',
             height: '11vw',
             borderRadius: '40px 40px 0 0'
         },
         cardTitle: {
             color: '#FFFFFF',
             fontFamily: 'Gaegu',
-            fontSize: '7-'
+            fontSize: '80',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'noWrap',
+            webkitLineClamp: 1,
+            overflow: 'hidden'
         }
       }
 
     return (
-        <Container className="recipe-grid container" style={styles.cardContainer}>
-            <Row className='row'>
-                {recipes.map((recipe, idx) => (
-                    <Col className='col' key={idx}>
-                        <Card className="recipe-card" style={styles.card}>
-                            <Card.Img variant="top" src={recipe.image} alt={recipe.title}  style={styles.cardImage}/>
-                            <Card.Body>
-                                <Card.Title style={styles.cardTitle}>{recipe.title}</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
+        <div className='gap-5' style={styles.row} >
+            {recipes.map((recipe, idx) => (
+                <Card key={idx}  className="recipe-card shadow" style={styles.card}>
+                    <div style={{ backgroundImage: `url(${recipe.image})`, 
+                                    backgroundRepeat: 'no-repeat', 
+                                    backgroundPosition: 'center', 
+                                    backgroundSize: 'cover', 
+                                    height: '150px', 
+                                    borderRadius: '40px 40px 0 0'}}/>
+                    <Card.Body style={{ overflow: 'hidden' }}>
+                        <h5 style={styles.cardTitle}>{recipe.title}</h5>
+                    </Card.Body>
+                </Card>
+            ))}
+        </div>
+        //<Card.Img variant="top" src={recipe.image} alt={recipe.title}  style={styles.cardImage}/>
     );
 };
 

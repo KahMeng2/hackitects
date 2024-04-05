@@ -5,14 +5,19 @@ const AllRecipesPage = () => {
         { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' },
         { title: 'Chicken Curry', image: '/src/assets/chicken-curry.jpg' },
         { title: 'Chocolate Cake', image: '/src/assets/chocolate-cake.jpg' },
+        { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' },
+        { title: 'Chicken Curry', image: '/src/assets/chicken-curry.jpg' },
+        { title: 'Chocolate Cake', image: '/src/assets/chocolate-cake.jpg' },
         // Add more recipes as needed
     ];
 
     const styles = {
         title: {
-            color: '#F28482',
+            color: 'var(--hunyadi-yellow)',
             fontFamily: 'Readex Pro',
-            fontSize: '80',
+            marginTop: '40px',
+            marginBottom: '40px',
+            fontSize: '80'
           }
     }
 
