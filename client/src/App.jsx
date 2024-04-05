@@ -3,6 +3,7 @@
 import "./App.css";
 import AllRecipesPage from './pages/AllRecipesPage';
 import RecipePage from './pages/RecipePage';
+import LandingPage from "./pages/LandingPage";
 
 import {
   createBrowserRouter,
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
       },
       {
           path: "/landing",
-          element: <landingPage />
+          element: <LandingPage />
       },
     //   {
     //     path: "sample",
