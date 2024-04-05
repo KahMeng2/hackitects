@@ -14,10 +14,12 @@ const AllRecipesPage = () => {
 
     const styles = {
         title: {
-            color: '#F28482',
+            color: 'var(--hunyadi-yellow)',
             fontFamily: 'Readex Pro',
-            fontSize: '80',
-        }
+            marginTop: '40px',
+            marginBottom: '40px',
+            fontSize: '80'
+          }
     }
 
     return (
