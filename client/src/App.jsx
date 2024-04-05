@@ -1,5 +1,8 @@
-import viteLogo from '/vite.svg'
+/* eslint-disable react/prop-types */
+//import viteLogo from '/vite.svg'
 import "./App.css";
+import AllRecipesPage from './pages/AllRecipesPage';
+import RecipePage from './pages/RecipePage';
 
 import {
   createBrowserRouter,
@@ -21,8 +24,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <Main/ >,
     loader: mainLoader,
-    errorElement: <Error />,
-    //children: [
+    //errorElement: <Error />,
+    children: [
     //   {
     //     index: true,
     //     element: <Dashboard />,
@@ -54,11 +57,16 @@ const router = createBrowserRouter([
     //     element: <Success />,
     //     loader: successLoader
     //   },
-    //   {
-    //     path: "/recipes/:recipeID",
-    //     element: <RecipePage />,
-    //     loader: receipeLoader
-    //   },
+      {
+        path: "/recipes/:recipeID",
+        element: <RecipePage />,
+        //loader: receipeLoader
+      },
+      {
+        path: "/recipes",
+        element: <AllRecipesPage />,
+        //loader: receipeLoader
+      },
     //   {
     //     path: "/landing",
     //     element: <landingPage />
@@ -67,7 +75,7 @@ const router = createBrowserRouter([
     //     path: "sample",
     //     element: <samplePage />
     //   }
-    //]
+    ]
   }
 ]);
 
@@ -75,12 +83,11 @@ function App() {
   const [results, setResults] = useState([]);
   return (
     <div className="App">
-      <div className='search-bar-container'>
+    <RouterProvider router={router} />
+    <div className='search-bar-container'>
         <SearchBar setResults={setResults} />
         <SearchResultList results={results} />
       </div>
-            
-    <RouterProvider router={router} />
     </div>
   );
 }
