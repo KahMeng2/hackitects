@@ -47,7 +47,7 @@ const UserAndPW = () => {
                 <h4 style={{color:textcolour, fontWeight:"500", textAlign:"left"}}>Password</h4>
                 <input type="password" style={styles.input}/>
             </div>
-            <div style={{marginTop:"40px", paddingBottom:"50px"}}>
+            <div style={{marginTop:"40px"}}>
                 <RegisButton/>
             </div>
         </div>

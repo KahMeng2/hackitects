@@ -17,7 +17,7 @@ const RegisButton = () =>{
         return (
             <NavLink to={"/dashboard"}>
                 <button style={{fontFamily:"Comfortaa", backgroundColor:"#7090A8", borderRadius:"5px", padding:"5px 30px"}}>
-                    REGISTER
+                    LOG IN
                 </button>
             </NavLink>
     )
