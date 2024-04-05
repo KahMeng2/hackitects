@@ -82,6 +82,8 @@ recipeApi.patch("/:id", async (req, res) => {
 // Stores new recipes
 recipeApi.post("/addRecipe", async (req, res) => {
   const recipe = new Recipe({
+    name: req.body.name,
+    description: req.body.description,
     ingredients: req.body.ingredients,
     equipments: req.body.equipments,
     servings: req.body.servings,
