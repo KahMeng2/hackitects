@@ -3,6 +3,15 @@ import ingredientSchema from "./ingredientSchema.js";
 import equipmentSchema from "./equipmentSchema.js";
 
 const recipeSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+    text: true,
+  },
   ingredients: [ingredientSchema],
   equipments: [equipmentSchema],
   servings: {

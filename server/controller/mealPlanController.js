@@ -65,8 +65,8 @@ mealPlanApi.post("/initialiseMealPlan", async (req, res) => {
 mealPlanApi.patch("/updateMealPlan/:id", async (req, res) => {
   const { id } = req.params;
   const { ingredients, mealPlans } = req.body;
-  generated = false;
-  createdAt = Date.now;
+  const generated = false;
+  const createdAt = Date.now();
   try {
     // Find the recipe by ID and update it
     const updateMealPlan = await MealPlan.findByIdAndUpdate(
