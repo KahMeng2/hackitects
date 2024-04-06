@@ -1,6 +1,7 @@
 import Scroll from "../component/Scroll";
 import GenButton from "../component/GenButton";
 import Footer from "../component/Footer";
+import AllRecipesButtom from "../component/AllRecipesButton"
 
 const recipes = [
     { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' },
@@ -17,8 +18,9 @@ const DashboardPage = () => {
 
     return (
         <div style={{height:'85vh'}}>
-            <div>
+            <div style={{padding:"5px 0px"}}>
                 <GenButton/>
+                <AllRecipesButtom/>
             </div>
             <div style={{marginTop:'-30px'}}>
                 <h2 style={{ textAlign: "left", marginLeft:"50px", fontFamily: "Readex Pro", color: "lightcoral"}}>Current recipes</h2>
