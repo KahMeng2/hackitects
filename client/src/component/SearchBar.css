@@ -1,27 +1,110 @@
-.input-wrapper {
-    background-color: white;
-    width: 100%;
-    border-radius: 10px;
-    height: 2.5rem;
-    padding: 0 15px;
-    box-shadow: 0px 0px 8px #ddd;
+.search-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-}
-
-input {
-    background-color: transparent;
+    padding: 20px;
+  }
+  
+  .search-box {
+    display: flex;
+    width: 80%; /* Makes the search box longer */
+    max-width: 80vh; /* Ensures it doesn't get too wide on larger screens */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    color: #7090A8;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+    color: #7090A8;
+    padding: 10px;
     border: none;
-    height: 100%;
-    font-size: 1.25rem;
-    width: 100%;
-    margin-left: 5px;
-}
-
-input:focus {
     outline: none;
+    background-color: #7090A8;
+  }
+  
+  .search-button,
+  .save-button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Additional styling to remove the gap between buttons */
+  .search-button {
+    border-right: 1px solid rgba(8, 8, 8, 0.839);
+  }
+  
+  .results-container {
+    width: 80%;
+    max-width: 80vh; /* Matches the search box width */
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    max-height: 300px;
+    background-color: #ECE5DE;
+  }
+  
+  .result-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-family: 'Readex Pro';
+    font-size: 16px !important;
+    text-align: left;
+    color: #7090A8;
+  }
+  
+  .result-item:last-child {
+    border-bottom: none;
+  }
+
+  .result-item:hover {
+    border-bottom: none;
+    color: #ECE5DE;
+    background-color: #7090A8;
+  }
+  
+  .quantity-input,
+.unit-select {
+  padding: 10px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
 }
 
-#search-icon {
-    color: royalblue
+.unit-select {
+  cursor: pointer;
 }
+
+.selected-items-container {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 80vh;
+    height: 200px; /* Fixed height */
+    overflow-y: auto; /* Make it scrollable */
+    text-align: center;
+} 
+.selected-item-row {
+  margin: auto;
+  border-radius: 10px;
+  width: 50vh;
+  max-width: 80vh;
+  background-color: #7090A8;
+  margin-bottom: 10px;
+}
+  
+.selected-item {
+  padding: 10px;
+  font-family: 'Readex Pro';
+  font-size: 16px !important;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.selected-item:last-child {
+  border-bottom: none;
+}
+  

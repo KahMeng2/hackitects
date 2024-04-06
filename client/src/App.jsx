@@ -7,7 +7,7 @@ import DashboardPage from './pages/DashboardPage'
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LogInPage";
 import MealPlannerPage from "./pages/MealPlannerPage";
-
+import SearchPage from "./pages/SearchPage";
 
 import {
   createBrowserRouter,
@@ -21,6 +21,7 @@ import { useState } from 'react';
 import { SearchResultList } from './component/SearchResultList';
 
 
+
 function mainLoader() {
   return { }
 }
@@ -30,8 +31,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <Main/ >,
     loader: mainLoader,
-    //errorElement: <Error />,
     children: [
+      {
+        path: "/landing",
+        element: <LandingPage />
+      },
       {
           path: "/dashboard",
           element: <DashboardPage />,
@@ -47,41 +51,20 @@ const router = createBrowserRouter([
      {
         path: "/meal-planner",
         element: <MealPlannerPage />,
-        
-       },
-    //   {
-    //     path: "/profile/:userID",
-    //     element: <ProfilePage />,
-    //     loader: profileLoader
-    //   },
-    //   {
-    //     path: "/generate",
-    //     element: <GeneratePage />,
-    //     loader: generateLoader
-    //   },
-    //   {
-    //     path: "/sucess",
-    //     element: <Success />,
-    //     loader: successLoader
-    //   },
+      },
+
       {
         path: "/recipes/:recipeID",
         element: <RecipePage />,
-        //loader: receipeLoader
       },
       {
         path: "/recipes",
         element: <AllRecipesPage />,
-        //loader: receipeLoader
       },
       {
-        path: "/landing",
-        element: <LandingPage />
+        path: "/search",
+        element: <SearchPage />
       },
-    //   {
-    //     path: "sample",
-    //     element: <samplePage />
-    //   }
     ]
   }
 ]);
