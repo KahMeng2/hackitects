@@ -4,12 +4,13 @@ import GenButton from "../component/GenButton";
 import Scroll from "../component/Scroll";
 
 
-const MealPlannerPage = () => {
+const SamplePage = () => {
     const recipes = [
         { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' },
         { title: 'Chicken Curry', image: '/src/assets/chicken-curry.jpg' },
         { title: 'Chocolate Cake', image: '/src/assets/chocolate-cake.jpg' },
-        { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' }
+        { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' },
+        { title: 'Chicken Curry', image: '/src/assets/chicken-curry.jpg' }
         // Add more recipes as needed
     ];
 
@@ -25,8 +26,8 @@ const MealPlannerPage = () => {
 
     return (
         <div>
-            <div style={{minHeight: "70vh", height:"auto"}}>
-            <div style={{display:"flex", alignSelf:"center", justifyContent:"center"}}>
+            <div style={{ minHeight: "70vh", height:"auto"}}>
+            <div style={{ display:"flex", alignSelf:"center", justifyContent:"center"}}>
                 </div>
                 <div>
                     <h1 style={{color:"var(--hunyadi-yellow)", fontFamily:"Readex Pro",paddingTop:"50px", marginBottom:"50px", fontWeight:"700"}}>Successfully cook'd!</h1>
@@ -45,4 +46,4 @@ const MealPlannerPage = () => {
     )
 }
 
-export default MealPlannerPage
+export default SamplePage
