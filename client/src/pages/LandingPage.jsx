@@ -18,9 +18,7 @@ const LandingPage = () => {
         <div>
             <Banner/>
             <SwiperScroll recipes={recipes}/>
-            <div style={{position:"fixed", bottom:"0", width:"100vw"}}>
-                <Footer/>
-            </div>
+            <Footer/>
         </div>
     )
 }
