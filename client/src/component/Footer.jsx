@@ -29,8 +29,8 @@ const Footer = () => {
     return (
         <footer style={{backgroundColor: bgcolour, width:'100%',
         paddingTop:"10px", paddingBottom:"10px"}}>
-            <div style={{position:"fixed", textAlign:"center", fontFamily:"Gaegu", color:textcolour, fontSize:22}}>Made in Melbourne ♡ Cooked by Hackitects</div>
-            <div style={{position:"fixed", textAlign:"center", fontFamily:"Gaegu", color:textcolour, fontSize:22}}>facebook * instagram</div>
+            <div style={{textAlign:"center", fontFamily:"Gaegu", color:textcolour, fontSize:22}}>Made in Melbourne ♡ Cooked by Hackitects</div>
+            <div style={{textAlign:"center", fontFamily:"Gaegu", color:textcolour, fontSize:22}}>facebook * instagram</div>
         </footer>
     )
 }
