@@ -22,13 +22,19 @@ const Footer = () => {
                 textcolour:"#F28482"
             }
         }
+        else {
+            return {
+                bgcolour:"#BEC9C0",
+                textcolour:"#688D84"
+            }
+        }
     }
 
     const {bgcolour, textcolour} = getColours()
 
     return (
         <footer style={{backgroundColor: bgcolour, width:'100%',
-        paddingTop:"10px", paddingBottom:"10px"}}>
+        paddingTop:"10px", paddingBottom:"10px", position:"fixed", bottom:"0" }}>
             <div style={{textAlign:"center", fontFamily:"Gaegu", color:textcolour, fontSize:22}}>Made in Melbourne ♡ Cooked by Hackitects</div>
             <div style={{textAlign:"center", fontFamily:"Gaegu", color:textcolour, fontSize:22}}>facebook * instagram</div>
         </footer>

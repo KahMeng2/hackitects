@@ -5,7 +5,7 @@ function checkLocation({path}){
     return path;
 }
 
-const GenButton = () => {
+const ReturnHomeButton = () => {
 
     const location = useLocation();
 
@@ -23,27 +23,15 @@ const GenButton = () => {
         }
     }
 
-    // Conditionally render different components based on the current path
-    const redirectToPath = () => {
-        if (location.pathname === '/landing') {
-            return '/sample';
-        } else if (location.pathname === '/dashboard') {
-            return '/generate';
-        } else {
-            // You can handle other routes or conditions here
-            return '/';
-        }
-}
-
     const colourtheme = getColours()
 
     return (
-        <NavLink to={redirectToPath()}>
+        <NavLink to={'/dashboard'}>
             <button className="generate" style={{backgroundColor:colourtheme.bgcolour, color:colourtheme.textcolour}}>
-                GENERATE MEAL PLAN
+                RETURN HOME
             </button>
         </NavLink>
     )
 }
 
-export default GenButton
+export default ReturnHomeButton
