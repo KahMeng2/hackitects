@@ -24,36 +24,26 @@ const Test = () => {
         'pork ribs'
       ];
 
-    let controller = null; // Controller for managing the fetch request
-
     const handleSearchChange = async (e) => {
-       const query = e.target.value;
-        setSearchTerm(query);
-        console.log(query);
-      
-        // Cancel the previous fetch request if it exists
-        if (controller !== null) {
-          controller.abort();
-        }
-      
-        // Create a new controller for the fetch request
-        controller = new AbortController();
-        const signal = controller.signal;
-      
-        try {
-          const response = await fetch(`http://localhost:3000/api/ingredients/autocomplete?name=${query}`, { signal });
-          const data = await response.json();
-          console.log(data);
-          setSearchResults(data);
-        } catch (error) {
-          // Check if the error is due to aborting the fetch
-          if (error.name === 'AbortError') {
-            console.log('Previous request cancelled');
-          } else {
-            console.error('Error fetching autocomplete suggestions:', error);
-          }
-        }
-      };
+      const query = e.target.value;
+      setSearchTerm(query);
+      console.log(query)
+      // if (query == "") {
+      //   setSearchResults([])
+      //   return () => (cancel = true);
+      // }
+      let cancel = false
+      try {
+        const response = await fetch(`http://localhost:3000/api/ingredients/autocomplete?name=${query}`);
+        const data = await response.json();
+        if (cancel) return
+        console.log(data)
+        setSearchResults(data);
+      } catch (error) {
+        console.error('Error fetching autocomplete suggestions:', error);
+      }
+      return () => (cancel = true);
+    };
 
     const handleSelectItem = (item) => {
         setSelectedItems((prevItems) => [...prevItems, item]);
