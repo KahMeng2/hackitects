@@ -36,7 +36,6 @@ recipeApi.get("/:id", findrecipe, async (req, res) => {
 
 // Gets all recipes
 recipeApi.get("/", async (req, res) => {
-  console.log("here");
   const recipes = await Recipe.find();
   try {
     res.status(200).json(recipes);
