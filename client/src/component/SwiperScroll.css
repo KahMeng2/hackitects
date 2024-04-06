@@ -1,9 +1,13 @@
 .scroll-card {
     height: 150px !important;
-    background-color: var(--) !important;
 }
 .landing-card {
     background-color: var(--light-coral) !important;
+    height: 200px !important;
+}
+
+.all-recipe-card {
+    background-color: var(--hunyadi-yellow) !important;
     height: 200px !important;
 }
 .all-recipe-card, .scroll-card, .landing-card {
