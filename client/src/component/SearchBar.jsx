@@ -1,88 +1,114 @@
 import React, { useState, useEffect } from 'react';
 import "./SearchBar.css"
-import { json } from 'react-router-dom';
+import { SearchResultList } from './SearchResultList';
 //import { FaSearch } from "react-icons/fa";
 
 //onSearch function: enter(input changes) -> search
 //https://hitchhikers.yext.com/docs/search/searchbar-react-component/
-function SearchBar({ OnSearch }) {
-    //store the query value(string), setQuery function to update query(current input)
-    const [query, setQuery] = useState('');
-    //return the data from database(how to link to db?)
-    const fetchData = (value) => {
-        fetch()//db
-        .then((response) => response.json())
-        .then((json) => {
-            const results = json.filter((user) => {
-                return (
-                    value &&
-                    user &&
-                    user.name &&
-                    user.name.toLowerCase().includes(value)
-                );
-            });
-            OnSearch(results);
-            //console.log(results);
-        });
-    };
 
-    useEffect(() => {
-        if (query) {
-            fetchData(query).then((results)) => {
-                
-            }
+const SearchBar = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [quantity, setQuantity] = useState('');
+    const [unit, setUnit] = useState('kg'); // Default unit
+    const [searchResults, setSearchResults] = useState([]);
+    const [selectedItems, setSelectedItems] = useState([]); 
 
-        }
-    })
-
-    const handleSearchClick = () => {
-        if (OnSearch) {
-            OnSearch(query);
-        }
-    };
-
-    const handleSaveClick = () => {
-        if (onSave)
+    const styles = {
+      inputBar : {
+        backgroundColor: "#E2EAF0", 
+        color: "#7090A8", 
+        borderWidth: "0px", 
+        fontFamily: "Readex Pro", 
+        fontSize: 24
+      },
+      title: {
+        color: '#7090A8',
+        fontFamily: 'Readex Pro',
+        fontSize: 18,
+        marginLeft: "20px"
+      }
     }
-    //when user input the new value, update the query value and call the setQuery function
-    const handleInputChange = (Event) => {
-        //update the query value
-        setQuery(Event.target.value);
-        fetchData(Event.target.value)
-        if (OnSearch) {
-            //if onSearch funtion, do the new input
-            OnSearch(Event.target.value)
-        }
 
+    const mockData = [
+        'beef',
+        'beef mince',
+        'beef stock',
+        'chicken',
+        'chicken breasts',
+        'pork',
+        'pork ribs'
+      ];
+
+    const handleSearchChange = async (e) => {
+      const query = e.target.value;
+      setSearchTerm(query);
+      let cancel = false
+      try {
+        const response = await fetch(`http://localhost:3000/api/ingredients/autocomplete?name=${query}`);
+        const data = await response.json();
+        if (cancel) return
+        console.log(data)
+        setSearchResults(data);
+      } catch (error) {
+        console.error('Error fetching autocomplete suggestions:', error);
+      }
+      return () => (cancel = true);
     };
+
+    const handleSelectItem = (item) => {
+        setSelectedItems((prevItems) => [...prevItems, item]);
+        setSearchTerm("")
+        setSearchResults([])
+    };
+
+    const handleRemoveItem = (itemToRemove) => {
+        setSelectedItems((prevItems) => prevItems.filter(item => item !== itemToRemove));
+    };
+  
     return (
-        //return the search bar(<FaSearch id="search-icon" />)
-        <div className="input-wrapper">
-            <input
-            
-            type="search"
-
-            name="search-form"
-
-            id="search-form"
-
+      <div className="search-container">
+        <div className="search-box">
+          <input
+            type="text"
             className="search-input"
-
-            placeholder="Search ingredences..."
-
-            value={query}
-
-            onChange={(e) => handleInputChange(e.target.value)}
-
-            />
-            {/* 'Search' button triggers search based on the current input value */}
-            <button onClick={handleSearchClick}>Search</button>
-            {/* 'Save' button can trigger a save action in the parent component */}
-            <button onClick={handleSaveClick}>Save</button>
-
+            placeholder="Enter ingredients..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            style={styles.inputBar}
+          />
         </div>
+        {searchResults.length > 0 && (
+          <div className="results-container">
+            {searchResults.map((result, index) => (
+              <div key={index} className="result-item" onClick={() => handleSelectItem(result)}>
+                {result}
+              </div>
+            ))}
+          </div>
+        )}
+        <div className="selected-items-container" style={{visibility: selectedItems.length > 0 ? 'visible' : 'hidden' }}>
+          {selectedItems.length > 0 && selectedItems.map((item, index) => (
+            <div key={index} className="selected-item-row">
+              <div className="selected-item input-group gap-4">
+                <div className="chosen p-1">
+                  {item}
+                </div>
+                <input type="text" 
+                      className="form-control" 
+                      placeholder="Volume (kgs)" 
+                      aria-label="Recipient's username" 
+                      aria-describedby="basic-addon2" 
+                      style={{width:'30px', fontSize:'12px', fontFamily: "Readex Pro"}}/>
+                <div className="input-group-append">
+                  <button className="btn btn-outline-secondary" type="button" onClick={() => handleRemoveItem(item)}>Delete</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      
+      </div>
     );
-
-}
+  };
 
 export default SearchBar

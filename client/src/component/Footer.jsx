@@ -16,7 +16,7 @@ const Footer = () => {
                 textcolour:"#7090A8"
             }
         }
-        else if (location.pathname === '/login') {
+        else if (location.pathname === '/login' || location.pathname === '/search') {
             return {
                 bgcolour:"#FDDFDA",
                 textcolour:"#F28482"
