@@ -28,14 +28,21 @@ const Test = () => {
       const query = e.target.value;
       setSearchTerm(query);
       console.log(query)
+      // if (query == "") {
+      //   setSearchResults([])
+      //   return () => (cancel = true);
+      // }
+      let cancel = false
       try {
         const response = await fetch(`http://localhost:3000/api/ingredients/autocomplete?name=${query}`);
         const data = await response.json();
+        if (cancel) return
         console.log(data)
         setSearchResults(data);
       } catch (error) {
         console.error('Error fetching autocomplete suggestions:', error);
       }
+      return () => (cancel = true);
     };
 
     const handleSelectItem = (item) => {
