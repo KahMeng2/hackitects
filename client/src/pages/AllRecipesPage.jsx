@@ -1,5 +1,6 @@
 import RecipeGrid from '/src/component/RecipeGrid';
-import Scroll from "../component/Scroll"
+import Scroll from "../component/Scroll";
+import Footer from "../component/Footer"
 
 const AllRecipesPage = () => {
     const recipes = [
@@ -23,9 +24,12 @@ const AllRecipesPage = () => {
     }
 
     return (
-        <div className="container">
+        <div>
+        <div style={{margin: "0px 70px"}}>
             <h1 style={styles.title}>All Saved Recipes</h1>
             <RecipeGrid recipes={recipes} />
+        </div>
+        <Footer/>
         </div>
     );
 };

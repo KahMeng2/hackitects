@@ -22,6 +22,12 @@ const Footer = () => {
                 textcolour:"#F28482"
             }
         }
+        else {
+            return {
+                bgcolour:"#BEC9C0",
+                textcolour:"#688D84"
+            }
+        }
     }
 
     const {bgcolour, textcolour} = getColours()

@@ -9,8 +9,8 @@ const RecipePage = () => {
     };
 
     return (
-        <div className="container">
-            <h1>Recipe Details</h1>
+        <div>
+            <h1>Recipe</h1>
             <RecipeDetail recipe={recipe} />
         </div>
     );
