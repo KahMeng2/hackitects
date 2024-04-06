@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import DashboardPage from './pages/DashboardPage'
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LogInPage";
+import MealPlannerPage from "./pages/MealPlannerPage";
 
 
 import {
@@ -43,11 +44,11 @@ const router = createBrowserRouter([
           path: "/signup",
           element: <SignUpPage/>
       },
-    //   {
-    //     path: "/registration",
-    //     element: <RegistrationPage />,
-    //     loader: registrationLoader
-    //   },
+     {
+        path: "/meal-planner",
+        element: <MealPlannerPage />,
+        
+       },
     //   {
     //     path: "/profile/:userID",
     //     element: <ProfilePage />,

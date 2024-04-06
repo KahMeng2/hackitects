@@ -5,6 +5,7 @@ import img from "../src/assets/banner.webp"
 import Navbar from "../src/component/NavBar"
 import Banner from "../src/component/Banner"
 import Scroll  from "../src/component/Scroll"
+import ReturnHomeButton from "../src/component/ReturnHomeButton"
 
 const Main = () => {
     console.log("something")
