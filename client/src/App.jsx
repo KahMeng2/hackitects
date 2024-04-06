@@ -16,24 +16,15 @@ import {
 
 // Layouts
 import Main from '../layouts/main';
-//import SearchBar from './component/SearchBar';
-import { useState } from 'react';
-import { SearchResultList } from './component/SearchResultList';
-
-
-
-function mainLoader() {
-  return { }
-}
+import { ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main/ >,
-    loader: mainLoader,
     children: [
       {
-        path: "/landing",
+        index: true,
         element: <LandingPage />
       },
       {
@@ -62,7 +53,7 @@ const router = createBrowserRouter([
         element: <AllRecipesPage />,
       },
       {
-        path: "/search",
+        path: "/generate",
         element: <SearchPage />
       },
     ]
@@ -72,7 +63,8 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={router} />      
+      <RouterProvider router={router} />  
+      <ToastContainer />    
     </div>
       
   );

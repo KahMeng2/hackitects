@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import "./SearchBar.css"
-import { SearchResultList } from './SearchResultList';
 //import { FaSearch } from "react-icons/fa";
 
 //onSearch function: enter(input changes) -> search

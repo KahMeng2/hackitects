@@ -5,7 +5,8 @@ const Footer = () => {
     const location = useLocation();
 
     const getColours = () => {
-        if (location.pathname === "/landing") {
+        console.log(location.pathname)
+        if (location.pathname === "/") {
             return {
                 bgcolour: "#F7E1C2",
                 textcolour: "#C78213"}

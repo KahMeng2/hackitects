@@ -1,9 +1,6 @@
 import { Form, NavLink, Navigate, useNavigate, Link, useLocation } from "react-router-dom"
-
-
-function checkLocation({path}){
-    return path;
-}
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const GenButton = () => {
 
@@ -23,17 +20,22 @@ const GenButton = () => {
         }
     }
 
+    
+
     // Conditionally render different components based on the current path
     const redirectToPath = () => {
-        if (location.pathname === '/landing') {
+        if (location.pathname === '/') {
             return '/sample';
         } else if (location.pathname === '/dashboard') {
-            return '/generate';
+            return "/generate"
+        } else if (location.pathname === '/generate'){
+            toast.success("Meal plan Generated") 
+            return "/"
         } else {
             // You can handle other routes or conditions here
             return '/';
         }
-}
+    }
 
     const colourtheme = getColours()
 
