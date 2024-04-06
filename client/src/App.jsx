@@ -33,7 +33,6 @@ const router = createBrowserRouter([
     //errorElement: <Error />,
     children: [
       {
-    //     index: true,
           path: "/dashboard",
           element: <DashboardPage />,
       },
@@ -91,10 +90,6 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router} />      
-      <div className='search-bar-container'>
-        <Test setResults />
-      </div>
-            
     </div>
       
   );

@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { Container, Row, Col, Card, Carousel, CardGroup } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
+import 'swiper/swiper-bundle.css';
+import 'swiper/css/pagination';
 
 const Scroll = ({ recipes, colour }) => {
     const [index, setIndex] = useState(0);
@@ -29,50 +33,53 @@ const Scroll = ({ recipes, colour }) => {
         cardContainer: {
             backgroundColor: bgcolour,
             width: '100%',
-            height: '320px',
+            height: '210px',
             position: 'relative',
-            overflow: 'scroll',
+            paddingLeft: '25px',
+            paddingBottom: '20px',
         }, 
         card: {
             backgroundColor: textcolour,
             borderRadius: 40,
-            height: '220px',
-            width: '250px',
+            height: '120px',
             padding: 0,
-            border: '0'
+            border: 0,
+            marginRight: '40px'
         },
         cardImage: {
             objectFit: 'cover',
             width: '100%',
-            height: '11vw',
+            height: '110px',
             borderRadius: '40px 40px 0 0'
+        },
+        cardBody: {
+            overflow: 'hidden', 
+            borderRadius: '0 0 40px 40px', 
+            backgroundColor: textcolour, 
+            paddingTop: '5px', 
+            paddingBottom: '5px'
         },
         cardTitle: {
             color: '#FFFFFF',
             fontFamily: 'Gaegu',
-            fontSize: '80',
+            fontSize: 20
         }
     }
 
     return (
-        <div className="recipe-grid gap-5" style={styles.cardContainer}>
-            <Row className='row' style={{display: "flex", flexWrap: "nowrap", marginTop: "50px"}}>
+        <div style={styles.cardContainer}>
+            <Swiper className='p-4' modules={[Pagination, Navigation]} navigation spaceBetween={50} slidesPerView={5} pagination={true} wrapperTag='ul'>
                 {recipes.map((recipe, idx) => (
-                    <Col className='col' key={idx} style={{width: "100%"}}>
-                        <Card className="recipe-card shadow" style={styles.card}>
-                            <div style={{ backgroundImage: `url(${recipe.image})`, 
-                                        backgroundRepeat: 'no-repeat', 
-                                        backgroundPosition: 'center', 
-                                        backgroundSize: 'cover', 
-                                        height: '150px', 
-                                        borderRadius: '40px 40px 0 0'}}/>
-                            <Card.Body style={{ overflow: 'hidden' }}>
-                                <h5 style={styles.cardTitle}>{recipe.title}</h5>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
+                    <SwiperSlide key={idx} wrapperTag='li'>
+                        <div className="scroll-card shadow">
+                            <div className="cover" style={{ backgroundImage: `url(${recipe.image})`, ...styles.cardImage}}/>
+                            <div style={styles.cardBody}>
+                                <h3 style={styles.cardTitle}>{recipe.title}</h3>
+                            </div>
+                        </div>
+                    </SwiperSlide> 
+                ))}               
+            </Swiper>
         </div>
     );
 };
