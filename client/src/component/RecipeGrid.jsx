@@ -43,7 +43,7 @@ const RecipeGrid = ({ recipes }) => {
     return (
         <div className='gap-5' style={styles.row} >
             {recipes.map((recipe, idx) => (
-                <NavLink to={`/recipes/${recipe._id}`}>
+                <NavLink to={`/recipes/${recipe._id}`} state={{ recipe }}>
                     {console.log(`/recipes/${recipe._id}`)}
                     <Card key={idx}  className="all-recipe-card shadow">
                         <div style={{ backgroundImage: `url(${recipe.image})`, 
