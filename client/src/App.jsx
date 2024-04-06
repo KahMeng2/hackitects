@@ -62,7 +62,7 @@ const router = createBrowserRouter([
         element: <AllRecipesPage />,
       },
       {
-        path: "/search",
+        path: "/generate",
         element: <SearchPage />
       },
     ]

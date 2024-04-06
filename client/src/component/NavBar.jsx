@@ -20,7 +20,7 @@ const Navbar = () => {
         )
     }
 
-    else if (location.pathname === '/login' || location.pathname === '/search'){
+    else if (location.pathname === '/login' || location.pathname === '/generate'){
         return (
             <header style={{display: "flex", alignItems: "center", 
             justifyContent: "space-between", backgroundColor: "#CFD6DC", width:'100%', paddingTop:"5px", paddingBottom:"5px"}}>

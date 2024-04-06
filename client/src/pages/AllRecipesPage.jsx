@@ -43,7 +43,7 @@ const AllRecipesPage = () => {
     return (
         <div>
         <div style={{margin: "0px 70px"}}>
-            <h1 style={styles.title}>All Saved Recipes</h1>
+            <h2 style={styles.title}>All Recipes</h2>
             <RecipeGrid recipes={testRecipe} />
         </div>
         <Footer/>

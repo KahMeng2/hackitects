@@ -2,6 +2,7 @@ import SearchBar from "../component/SearchBar"
 import Footer from "../component/Footer"
 import SearchLogo from "../assets/Capa_1.svg"
 import GenButton from "../component/GenButton"
+import ReturnHomeButton from "../component/ReturnHomeButton"
 
 const SearchPage = () => {
     const styles = {
@@ -21,6 +22,7 @@ const SearchPage = () => {
                 </div>
                 <SearchBar />
                 <GenButton />
+                <ReturnHomeButton/>
             </div>
             <div style={{position:"fixed", bottom:"0", width:"100vw"}}>
                 <Footer/>
