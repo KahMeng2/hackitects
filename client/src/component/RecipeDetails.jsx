@@ -1,4 +1,11 @@
 const RecipeDetail = ({ recipe }) => {
+
+    const style = {
+        title:{
+            fontFamily:""
+        }
+    }
+
     return (
         <div className="recipe-detail">
             <h2>{recipe.title}</h2>
