@@ -23,12 +23,12 @@ const SwiperScroll = ({ recipes }) => {
         }
     }
     return (
-        <div className='p-4'>
+        <div className='p-3'>
             <h1 style={styles.title}>Sample Recipes</h1>
-            <Swiper className='p-4' modules={[Autoplay]} spaceBetween={50} slidesPerView={3} autoplay={{delay:3000, pauseOnMouseEnter:true}}>
+            <Swiper className='pl-4 pr-4 pb-2' modules={[Autoplay]} spaceBetween={50} slidesPerView={3} autoplay={{delay:3000, pauseOnMouseEnter:true}}>
                 {recipes.map((recipe, idx) => (
                     <SwiperSlide className="scroll-card-slide" key={idx}>
-                         <Card className="scroll-card shadow">
+                         <Card className="landing-card shadow">
                             <div className="cover" style={{ backgroundImage: `url(${recipe.image})`}}/>
                             <Card.Body style={{ overflow: 'hidden' }}>
                                 <h3 style={styles.cardTitle}>{recipe.title}</h3>

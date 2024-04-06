@@ -3,7 +3,6 @@ import "./App.css";
 import AllRecipesPage from './pages/AllRecipesPage';
 import RecipePage from './pages/RecipePage';
 import LandingPage from "./pages/LandingPage";
-import SearchBar_test from './component/SearchBar_test';
 import DashboardPage from './pages/DashboardPage'
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LogInPage";
@@ -74,10 +73,10 @@ const router = createBrowserRouter([
         element: <AllRecipesPage />,
         //loader: receipeLoader
       },
-    //   {
-    //     path: "/landing",
-    //     element: <landingPage />
-    //   },
+      {
+        path: "/landing",
+        element: <LandingPage />
+      },
     //   {
     //     path: "sample",
     //     element: <samplePage />
