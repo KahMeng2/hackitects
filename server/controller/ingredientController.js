@@ -68,12 +68,12 @@ ingredientApi.get("/autocomplete", async (req, res) => {
       name: { $regex: `^${name}`, $options: "i" },
     });
     console.log(ingredients);
-    const ingredientsWithCombinedTypes = ingredients.map((ingredient) => {
-      const combinedType = `${ingredient.name} `;
-      return combinedType;
-    });
-    console.log(ingredientsWithCombinedTypes.slice(0, 2));
-    res.json(ingredientsWithCombinedTypes.slice(0, 2)); // Send the list of ingredient names as JSON response
+    // const ingredientsWithCombinedTypes = ingredients.map((ingredient) => {
+    //   const combinedType = `${ingredient.name} `;
+    //   return combinedType;
+    // });
+    console.log(ingredients.slice(0, 2));
+    res.json(ingredients.slice(0, 2)); // Send the list of ingredient names as JSON response
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });

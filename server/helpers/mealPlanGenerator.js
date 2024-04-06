@@ -18,7 +18,7 @@ function isCookable(mealPlanIngredients, recipeIngredients, ratio) {
   for (const recipeIngredient of recipeIngredients) {
     const ingredientId = recipeIngredient.ingredient.toString();
     // required volume depends on ratio
-    const requiredVolume = recipeIngredient.volume;
+    const requiredVolume = ratio * recipeIngredient.volume;
     const availableVolume = availableIngredientsMap.get(ingredientId);
 
     // If the required ingredient is not available or the available volume is less than required
@@ -93,10 +93,16 @@ export function findOptimalPlan(ingredients, recipes, serving) {
   // Step 1: For each recipe in the recipe list
   recipes.map((recipe) => {
     // ratio to adjust the ingredient volume
-    const ratio = serving / recipe.servings;
+    var ratio;
     const selectedRecipe = recipe;
-    adjustVolume(selectedRecipe, ratio);
-    selectedRecipe.servings = serving;
+    if (serving) {
+      ratio = serving / recipe.servings;
+      selectedRecipe.servings = serving;
+      adjustVolume(selectedRecipe, ratio);
+    } else {
+      ratio = 1;
+    }
+
     // Step 2: Iterate through list of possible Meal Plans, and check if remaining ingredients can cook the recipe.
     // If cookable, append to the particular possibleMealPlans list
     possibleMealPlans.map((possibleMealPlan) => {
