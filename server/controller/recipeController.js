@@ -25,9 +25,21 @@ async function findrecipe(req, res, next) {
 
 // The endpoints are below
 // Gets recipes
-recipeApi.get("/:id", findrecipe, (req, res) => {
+recipeApi.get("/:id", findrecipe, async (req, res) => {
   try {
     res.status(200).json(res.recipe);
+  } catch (e) {
+    console.log(e);
+    res.status(404).end();
+  }
+});
+
+// Gets all recipes
+recipeApi.get("/", async (req, res) => {
+  console.log("here");
+  const recipes = await Recipe.find();
+  try {
+    res.status(200).json(recipes);
   } catch (e) {
     console.log(e);
     res.status(404).end();
