@@ -10,7 +10,7 @@
     width: 80%; /* Makes the search box longer */
     max-width: 80vh; /* Ensures it doesn't get too wide on larger screens */
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     overflow: hidden;
     color: #7090A8;
   }

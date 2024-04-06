@@ -8,6 +8,7 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LogInPage";
 import MealPlannerPage from "./pages/MealPlannerPage";
 import SearchPage from "./pages/SearchPage";
+import SamplePage from "./pages/SamplePage";
 
 import {
   createBrowserRouter,
@@ -62,9 +63,13 @@ const router = createBrowserRouter([
         element: <AllRecipesPage />,
       },
       {
-        path: "/search",
+        path: "/generate",
         element: <SearchPage />
       },
+      {
+        path: "/sample",
+        element: <SamplePage />
+      }
     ]
   }
 ]);

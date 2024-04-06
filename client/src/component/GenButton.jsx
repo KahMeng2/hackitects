@@ -37,13 +37,36 @@ const GenButton = () => {
 
     const colourtheme = getColours()
 
-    return (
-        <NavLink to={redirectToPath()}>
-            <button className="generate" style={{backgroundColor:colourtheme.bgcolour, color:colourtheme.textcolour}}>
-                GENERATE MEAL PLAN
-            </button>
-        </NavLink>
-    )
+
+    if (location.pathname === '/meal-planner'){
+        return (
+            <NavLink to={redirectToPath()}>
+                <button className="generate" style={{backgroundColor:colourtheme.bgcolour, color:colourtheme.textcolour}}>
+                    GENERATE AGAIN
+                </button>
+            </NavLink>
+        )
+    }
+
+    else if (location.pathname === '/landing'){
+        return (
+            <NavLink to={redirectToPath()}>
+                <button className="generate" style={{backgroundColor:colourtheme.bgcolour, color:colourtheme.textcolour}}>
+                    GENERATE SAMPLE MEAL PLAN
+                </button>
+            </NavLink>
+        )
+    }
+
+    else {
+        return (
+            <NavLink to={redirectToPath()}>
+                <button className="generate" style={{backgroundColor:colourtheme.bgcolour, color:colourtheme.textcolour}}>
+                    GENERATE MEAL PLAN
+                </button>
+            </NavLink>
+        )
+    }
 }
 
 export default GenButton
