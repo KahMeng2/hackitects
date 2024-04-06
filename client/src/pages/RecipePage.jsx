@@ -10,7 +10,6 @@ const RecipePage = () => {
 
     return (
         <div>
-            <h1>Recipe</h1>
             <RecipeDetail recipe={recipe} />
         </div>
     );
