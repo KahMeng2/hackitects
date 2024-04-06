@@ -8,12 +8,10 @@ const ingredientSchema = new mongoose.Schema({
     enum: IngredientTypes,
     required: true,
   },
-  primaryType: {
+  name: {
     type: String,
     required: true,
-  },
-  subType: {
-    type: String,
+    unique: true,
   },
   unit: {
     type: String,
@@ -21,9 +19,6 @@ const ingredientSchema = new mongoose.Schema({
     enum: Units,
   },
 });
-
-// Creating index for the primaryType, and subType
-ingredientSchema.index({ primaryType: 1, subType: 1 }, { unique: true });
 
 // Create the Ingredient model from the schema
 const Ingredient = mongoose.model("Ingredient", ingredientSchema);
