@@ -93,7 +93,11 @@ export function findOptimalPlan(ingredients, recipes, serving) {
   // Step 1: For each recipe in the recipe list
   recipes.map((recipe) => {
     // ratio to adjust the ingredient volume
-    const ratio = serving / recipe.servings;
+    var ratio;
+    if (serving) {
+      ratio = serving / recipe.servings;
+    } else [(ratio = 1)];
+
     const selectedRecipe = recipe;
     adjustVolume(selectedRecipe, ratio);
     selectedRecipe.servings = serving;
