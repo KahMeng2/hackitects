@@ -40,11 +40,7 @@ const GenButton = () => {
     return (
         <NavLink to={redirectToPath()}>
             <button className="generate" style={{backgroundColor:colourtheme.bgcolour, color:colourtheme.textcolour}}>
-<<<<<<< Updated upstream
-                GENERATE RECIPES
-=======
                 GENERATE MEAL PLAN
->>>>>>> Stashed changes
             </button>
         </NavLink>
     )
