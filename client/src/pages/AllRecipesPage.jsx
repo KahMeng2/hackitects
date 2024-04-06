@@ -1,8 +1,25 @@
 import RecipeGrid from '/src/component/RecipeGrid';
 import Scroll from "../component/Scroll";
 import Footer from "../component/Footer"
+import { useEffect, useState } from 'react';
+import axios from "axios";
 
 const AllRecipesPage = () => {
+    // When page loads, this functions add
+    const [testRecipe, setRecipes] = useState([])
+    useEffect(() => {
+        axios.get('http://localhost:3000/api/recipes')
+        .then(res => {
+            const recipe = res.data 
+            console.log(recipe)
+            setRecipes(recipe)
+        }
+        ).catch(e => {
+            console.log(e)
+        })
+
+    },[])
+
     const recipes = [
         { title: 'Spaghetti Carbonara', image: '/src/assets/spaghetti-carbonara.jpg' },
         { title: 'Chicken Curry', image: '/src/assets/chicken-curry.jpg' },
@@ -20,14 +37,14 @@ const AllRecipesPage = () => {
             paddingTop: '40px',
             marginBottom: '40px',
             fontSize: 64
-          }
+        }
     }
 
     return (
         <div>
         <div style={{margin: "0px 70px"}}>
             <h1 style={styles.title}>All Saved Recipes</h1>
-            <RecipeGrid recipes={recipes} />
+            <RecipeGrid recipes={testRecipe} />
         </div>
         <Footer/>
         </div>

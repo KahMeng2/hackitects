@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Card } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 const RecipeGrid = ({ recipes }) => {
     const [index, setIndex] = useState(0);
@@ -42,17 +43,20 @@ const RecipeGrid = ({ recipes }) => {
     return (
         <div className='gap-5' style={styles.row} >
             {recipes.map((recipe, idx) => (
-                <Card key={idx}  className="all-recipe-card shadow">
-                    <div style={{ backgroundImage: `url(${recipe.image})`, 
-                                    backgroundRepeat: 'no-repeat', 
-                                    backgroundPosition: 'center', 
-                                    backgroundSize: 'cover', 
-                                    height: '150px', 
-                                    borderRadius: '40px 40px 0 0'}}/>
-                    <Card.Body style={{ overflow: 'hidden' }}>
-                        <h5 style={styles.cardTitle}>{recipe.title}</h5>
-                    </Card.Body>
-                </Card>
+                <NavLink to={`/recipes/${recipe._id}`}>
+                    {console.log(`/recipes/${recipe._id}`)}
+                    <Card key={idx}  className="all-recipe-card shadow">
+                        <div style={{ backgroundImage: `url(${recipe.image})`, 
+                                        backgroundRepeat: 'no-repeat', 
+                                        backgroundPosition: 'center', 
+                                        backgroundSize: 'cover', 
+                                        height: '150px', 
+                                        borderRadius: '40px 40px 0 0'}}/>
+                        <Card.Body style={{ overflow: 'hidden' }}>
+                            <h5 style={styles.cardTitle}>{recipe.name}</h5>
+                        </Card.Body>
+                    </Card>
+                </NavLink>
             ))}
         </div>
         //<Card.Img variant="top" src={recipe.image} alt={recipe.title}  style={styles.cardImage}/>

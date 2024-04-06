@@ -1,8 +1,20 @@
 import UserAndPW from "../component/UserAndPass"
 import Footer from "../component/Footer"
+import image_18 from "../assets/image_18.png"
 
 
 const LoginPage = () => {
+
+    const style = {
+        overlay: {
+            display: "flex", 
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            backgroundColor: "rgba(0,0,0,0.3)"
+        }
+    }
+
     return (
         <div>
             <div style={{backgroundColor:"#CFD6DC", minHeight: "100vh", height:"auto"}}>
